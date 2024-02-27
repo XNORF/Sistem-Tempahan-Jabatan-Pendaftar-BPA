@@ -1,5 +1,5 @@
 {
-    "name": "JPA Booking System",
+    "name": "Sistem-Tempahan-Jabatan-Pendaftar-BPA",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -34,7 +34,10 @@
         "boxicons": "^2.1.4",
         "firebase": "^9.21.0",
         "glightbox": "^3.2.0",
+        "isotope-layout": "^3.0.6",
         "jquery": "^3.6.4",
-        "remixicon": "^3.2.0"
+        "remixicon": "^3.2.0",
+        "swiper": "^9.2.4",
+        "waypoints": "^4.0.1"
     }
 }
