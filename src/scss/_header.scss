@@ -6,7 +6,8 @@
   z-index: 997;
   padding: 15px 0;
 
-  &.header-scrolled, &.header-inner-pages {
+  &.header-scrolled,
+  &.header-inner-pages {
     background: rgba(darken($secondary, 10), 0.9);
   }
 
