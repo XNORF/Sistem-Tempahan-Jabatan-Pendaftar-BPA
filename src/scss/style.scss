@@ -15,16 +15,6 @@ $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 @import "sections";
 @import "footer";
 
-#googlemap {
-    width: 100%;
-    height: 465px;
-}
-
-#currentgooglemap {
-    width: 100%;
-    height: 425px;
-}
-
 //////////////////////////////PROFILE PICTURE//////////////////////////////
 @mixin object-center {
     display: flex;
