@@ -14,16 +14,15 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-/*MAIN CONFIG
+//MAIN CONFIG
 const firebaseConfig = {
-    apiKey: "AIzaSyDLmGRTL9jU4UKYW3dgZBGx_HXWCZngoCc",
-    authDomain: "utm-transporter.firebaseapp.com",
-    databaseURL: "https://utm-transporter-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "utm-transporter",
-    storageBucket: "utm-transporter.appspot.com",
-    messagingSenderId: "1014706948593",
-    appId: "1:1014706948593:web:772eb6406865597c285c50",
-    measurementId: "G-EWSPE5TS7F",
+    apiKey: "AIzaSyCngPNtxLmak-wSKaC-vWuv6chjYEwYmcI",
+    authDomain: "spbpajp.firebaseapp.com",
+    projectId: "spbpajp",
+    storageBucket: "spbpajp.appspot.com",
+    messagingSenderId: "886968564572",
+    appId: "1:886968564572:web:5b2656b433ca35d0789f99",
+    measurementId: "G-XXJV2E1949",
 };
 
 // Initialize Firebase
@@ -36,11 +35,7 @@ export const storage = getStorage(app);
 
 //FIRESTORE
 //Database collections (aka tables)
-export const usersDB = collection(db, "users");
-export const adminDB = collection(db, "admins");
-export const bookingDB = collection(db, "bookings");
-export const driverReqDB = collection(db, "driverRequest");
-
+//export const usersDB = collection(db, "users");
 
 //Export necessary functions from firebase
 export { getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc, doc, onSnapshot, query, where, orderBy, serverTimestamp } from "firebase/firestore";
