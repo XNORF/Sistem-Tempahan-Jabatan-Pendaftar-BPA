@@ -10,6 +10,7 @@ module.exports = {
         index: path.resolve(__dirname, "src/js/index.js"),
         home: path.resolve(__dirname, "src/js/home.js"),
         stationaries: path.resolve(__dirname, "src/js/stationaries.js"),
+        vehicle: path.resolve(__dirname, "src/js/vehicle.js"),
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -88,6 +89,11 @@ module.exports = {
             filename: "stationaries.html",
             template: path.resolve(__dirname, "src/html/stationaries.html"),
             chunks: ["stationaries"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "vehicle.html",
+            template: path.resolve(__dirname, "src/html/vehicle.html"),
+            chunks: ["vehicle"],
         }),
     ],
 };
