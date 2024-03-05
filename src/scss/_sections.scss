@@ -41,7 +41,7 @@ section {
     display: block;
     width: 40px;
     height: 3px;
-    background: $primary;
+    background: rgb(240, 231, 105);
     bottom: 0;
     left: calc(50% - 20px);
   }
@@ -733,6 +733,11 @@ section {
         background: lighten($secondary, 50);
         bottom: 0;
         left: 0;
+      }
+
+      // Custom to make no underline
+      &#item-count::after {
+        content: none !important; 
       }
     }
 

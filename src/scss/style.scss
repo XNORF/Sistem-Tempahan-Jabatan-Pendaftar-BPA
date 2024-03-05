@@ -228,4 +228,41 @@ $fontColor: rgb(250, 250, 250);
         width: 100%;
     }
 }
+
+/*Custom css*/
+
+#SearchAlatTulis{
+    border-radius: 50px;
+    border: grey 2px;
+}
+
+.round-50{
+    border-radius: 50px;
+}
+
+.px-14{
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+.Mohonbtn{
+    position: fixed;
+      bottom: 20px; /* Adjust the distance from the bottom as needed */
+      right: 70px; /* Adjust the distance from the right as needed */
+      background-color: #007bff; /* Button background color */
+      color: #fff; /* Button text color */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.Mohonbtn:hover{
+    background-color: #37517e;
+}
+
+.pagination a.page-link:hover,
+.pagination a.page-link:focus {
+  color: #ff0000 !important; /* Change this color to the desired hover color */
+}
 ///////////////////////////////////////////////////////////////////////////
