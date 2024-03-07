@@ -35,7 +35,9 @@ export const storage = getStorage(app);
 
 //FIRESTORE
 //Database collections (aka tables)
-//export const usersDB = collection(db, "users");
+export const usersDB = collection(db, "users");
+export const stationaryDB = collection(db, "stationaries");
+export const cartDB = collection(db, "cart");
 
 //Export necessary functions from firebase
 export { getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc, doc, onSnapshot, query, where, orderBy, serverTimestamp } from "firebase/firestore";
