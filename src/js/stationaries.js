@@ -46,6 +46,13 @@ function getStationary(q) {
         $("#list div").remove();
         if (!snapshot.empty) {
             snapshot.docs.forEach((doc) => {
+                //CHECK EACH QUANTITY IN CART
+                var quantity = 0;
+                if (cart.hasOwnProperty(doc.data().id)) {
+                    quantity = cart[doc.data().id].quantity;
+                } else {
+                }
+
                 list.innerHTML +=
                     `
                 <div class="col-lg-12 py-2">
@@ -67,7 +74,9 @@ function getStationary(q) {
                             <div class="col-4">
                                 <div class="item-number d-flex justify-content-center align-items-center">
                                     <button class="btn btn-secondary px-3 mx-3 round-50 incDecBtn" id="down" type="button" class="py-1 mx-3"><b>-</b></button>
-                                    <span class="pb-0" id="item-count">0</span>
+                                    <span class="pb-0" id="item-count">` +
+                    quantity +
+                    `</span>
                                     <button class="btn btn-secondary px-14 mx-3 round-50 incDecBtn" id="up" type="button"><b>+</b></button>
                                 </div>
                             </div>
