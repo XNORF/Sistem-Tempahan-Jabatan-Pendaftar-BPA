@@ -40,14 +40,15 @@ search.addEventListener("input", (e) => {
     if (searchRunning) {
         searchRunning = false;
     } else {
-        searchRunning = true;
         //1 SECOND DELAY TO SAVE RESOURCE
+        searchRunning = true;
         currentPage = 1;
 
         setTimeout(function () {
             value = e.target.value.trim().toLowerCase();
             if (value) {
                 //DONT QUERY SAME PARAMETER TO SAVE RESOURCE
+                $(".pageNav").prop("disabled", true);
                 if (value != pValue) {
                     getStationary(getQuery("default", true, value));
                     pValue = value;
@@ -55,6 +56,7 @@ search.addEventListener("input", (e) => {
                     pValue = value;
                 }
             } else {
+                $(".pageNav").prop("disabled", false);
                 getStationary(getQuery("default", false));
             }
             searchRunning = false;
