@@ -40,7 +40,7 @@ export const stationaryDB = collection(db, "stationaries");
 export const cartDB = collection(db, "cart");
 
 //Export necessary functions from firebase
-export { getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc, doc, onSnapshot, query, where, orderBy, serverTimestamp, or, and, startAt, limit, getCountFromServer } from "firebase/firestore";
+export { getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc, doc, onSnapshot, query, where, orderBy, serverTimestamp, or, and, startAfter, startAt, limit, getCountFromServer } from "firebase/firestore";
 export { createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 export { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 

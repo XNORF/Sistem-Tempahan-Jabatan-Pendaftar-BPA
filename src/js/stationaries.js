@@ -5,16 +5,35 @@ const main = require("./main.js");
 
 const search = document.querySelector("#SearchAlatTulis");
 const list = document.querySelector("#list");
-var value;
-var pValue; //Previous value inputted
-var cart = {}; //Temporary cart
+const limit = 5; //LIMIT FOR EACH PAGE
 var searchRunning = false;
+var value, pValue; //Previous value inputted
+var cart = {}; //Temporary cart
+var firstVisible,
+    lastVisible,
+    previousFirstVisible = [],
+    currentPage = 1;
 
 //GET TOTAL STATIONARY LIST COUNT
 const totalStationary = (await main.getCountFromServer(main.query(main.stationaryDB))).data().count;
+const totalPage = Math.ceil(totalStationary / limit);
 
 //DISPLAY LIST WHEN PAGE IS LOADED
-getStationary(getQuery(0, false));
+getStationary(getQuery("default", false));
+
+//NUMBER PAGINATION
+document.querySelectorAll(".pageNav").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        if (btn.value == "next" && currentPage < totalPage) {
+            getStationary(getQuery("next", false));
+            currentPage++;
+        } else if (btn.value == "previous" && currentPage > 1) {
+            getStationary(getQuery("previous", false));
+            currentPage--;
+        }
+        $("#currentPage").text(currentPage);
+    });
+});
 
 //SEARCH
 search.addEventListener("input", (e) => {
@@ -23,28 +42,35 @@ search.addEventListener("input", (e) => {
     } else {
         searchRunning = true;
         //1 SECOND DELAY TO SAVE RESOURCE
+        currentPage = 1;
 
         setTimeout(function () {
             value = e.target.value.trim().toLowerCase();
             if (value) {
                 //DONT QUERY SAME PARAMETER TO SAVE RESOURCE
                 if (value != pValue) {
-                    getStationary(getQuery(0, true, value));
+                    getStationary(getQuery("default", true, value));
                     pValue = value;
                 } else {
                     pValue = value;
                 }
             } else {
-                getStationary(getQuery(0, false));
+                getStationary(getQuery("default", false));
             }
             searchRunning = false;
         }, 1000);
     }
+    $("#currentPage").text(currentPage);
 });
 
 //LIST STATIONARY BASED ON QUERY INTO HTML
 function getStationary(q) {
     main.onSnapshot(q, (snapshot) => {
+        //CHECK FIRST AND LAST DOCUMENT
+        firstVisible = snapshot.docs[0];
+        lastVisible = snapshot.docs[snapshot.docs.length - 1];
+        setPreviousList(firstVisible, currentPage);
+
         //CHECK IF INCREASE DECREASE BUTTON EXIST
         var checkExist = setInterval(function () {
             if ($(".incDecBtn").length) {
@@ -110,11 +136,20 @@ function getStationary(q) {
 
 //RETURN QUERY FOR FIREBASE
 function getQuery(page, isSearching, value) {
-    const limit = 5;
     if (isSearching) {
         return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.where("tags", "array-contains-any", [value]));
     } else {
-        return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit));
+        switch (page) {
+            case "default":
+                return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit));
+                break;
+            case "next":
+                return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.startAfter(lastVisible));
+                break;
+            case "previous":
+                return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.startAt(previousFirstVisible[currentPage - 2]));
+                break;
+        }
     }
 }
 
@@ -138,4 +173,12 @@ function incDec() {
         delete cart[itemID];
     }
     console.log(cart);
+}
+
+//FUNCTION TO DEFINE THE FIRST FOR EACH PAGE OF THE LIST
+function setPreviousList(doc, page) {
+    page -= 1;
+    if (!previousFirstVisible[page]) {
+        previousFirstVisible.push(doc);
+    }
 }
