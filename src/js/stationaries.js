@@ -8,27 +8,34 @@ const list = document.querySelector("#list");
 var value;
 var pValue; //Previous value inputted
 var cart = {}; //Temporary cart
-
+var running = false;
 //DISPLAY LIST WHEN PAGE IS LOADED
 getStationary(getQuery(0, false));
 
 //SEARCH
 search.addEventListener("input", (e) => {
-    //1 SECOND DELAY TO SAVE RESOURCE
-    setTimeout(function () {
-        value = e.target.value.trim().toLowerCase();
-        if (value) {
-            //DONT QUERY SAME PARAMETER TO SAVE RESOURCE
-            if (value != pValue) {
-                getStationary(getQuery(0, true, value));
-                pValue = value;
+    if (running) {
+        running = false;
+    } else {
+        running = true;
+        //1 SECOND DELAY TO SAVE RESOURCE
+
+        setTimeout(function () {
+            value = e.target.value.trim().toLowerCase();
+            if (value) {
+                //DONT QUERY SAME PARAMETER TO SAVE RESOURCE
+                if (value != pValue) {
+                    getStationary(getQuery(0, true, value));
+                    pValue = value;
+                } else {
+                    pValue = value;
+                }
             } else {
-                pValue = value;
+                getStationary(getQuery(0, false));
             }
-        } else {
-            getStationary(getQuery(0, false));
-        }
-    }, 1000);
+            running = false;
+        }, 1000);
+    }
 });
 
 //LIST STATIONARY BASED ON QUERY INTO HTML
@@ -99,7 +106,7 @@ function getStationary(q) {
 
 //RETURN QUERY FOR FIREBASE
 function getQuery(page, isSearching, value) {
-    const limit = 10;
+    const limit = 5;
     if (isSearching) {
         return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.where("tags", "array-contains-any", [value]));
     } else {
