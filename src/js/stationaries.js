@@ -8,16 +8,20 @@ const list = document.querySelector("#list");
 var value;
 var pValue; //Previous value inputted
 var cart = {}; //Temporary cart
-var running = false;
+var searchRunning = false;
+
+//GET TOTAL STATIONARY LIST COUNT
+const totalStationary = (await main.getCountFromServer(main.query(main.stationaryDB))).data().count;
+
 //DISPLAY LIST WHEN PAGE IS LOADED
 getStationary(getQuery(0, false));
 
 //SEARCH
 search.addEventListener("input", (e) => {
-    if (running) {
-        running = false;
+    if (searchRunning) {
+        searchRunning = false;
     } else {
-        running = true;
+        searchRunning = true;
         //1 SECOND DELAY TO SAVE RESOURCE
 
         setTimeout(function () {
@@ -33,7 +37,7 @@ search.addEventListener("input", (e) => {
             } else {
                 getStationary(getQuery(0, false));
             }
-            running = false;
+            searchRunning = false;
         }, 1000);
     }
 });
@@ -130,5 +134,8 @@ function incDec() {
 
     //INSERT INTO TEMPORARY CART
     cart = { ...cart, [itemID]: { quantity: num } };
+    if (cart[itemID].quantity == 0) {
+        delete cart[itemID];
+    }
     console.log(cart);
 }
