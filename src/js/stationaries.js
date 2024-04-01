@@ -1,14 +1,21 @@
 ////////////////////////////MUST HAVE////////////////////////////
 import $ from "jquery";
 const main = require("./main.js");
+var currentUser;
+main.onAuthStateChanged(main.auth, (user) => {
+    if (user) {
+        currentUser = user;
+    }
+});
 /////////////////////////////////////////////////////////////////
 
 const search = document.querySelector("#SearchAlatTulis");
 const list = document.querySelector("#list");
+const submit = document.querySelector("#Mohonbtn");
 const limit = 5; //LIMIT FOR EACH PAGE
 var searchRunning = false;
 var value, pValue; //Previous value inputted
-var cart = {}; //Temporary cart
+var cart = {}; //Cart
 var firstVisible,
     lastVisible,
     previousFirstVisible = [],
@@ -63,6 +70,28 @@ search.addEventListener("input", (e) => {
         }, 1000);
     }
     $("#currentPage").text(currentPage);
+});
+
+//SUBMIT REQUEST - ADD CART INTO FIRESTORE & SEND EMAIL
+submit.addEventListener("click", (e) => {
+    e.target.disabled = true;
+    //CHECK IF EMPTY, EMPTY JSON IS 2
+    if (JSON.stringify(cart).length === 2) {
+        console.log("empty");
+    } else {
+        main.addDoc(main.cartDB, {
+            approved: {},
+            request: cart,
+            userID: currentUser.uid,
+        })
+            .then((success) => {
+                main.sendEmail(currentUser.email, success.id);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+    e.target.disabled = false;
 });
 
 //LIST STATIONARY BASED ON QUERY INTO HTML
@@ -155,7 +184,7 @@ function getQuery(page, isSearching, value) {
     }
 }
 
-//INCREASE OR DECREASE ITEM COUNT FOR EACH INDIVIDUAL ITEM & ADD TO TEMPORARY CART FOR TRACKING
+//INCREASE OR DECREASE ITEM COUNT FOR EACH INDIVIDUAL ITEM & ADD TO CART FOR TRACKING
 function incDec() {
     //ITEM COUNT
     const count = this.closest(".member").querySelector("#item-count");
@@ -169,12 +198,11 @@ function incDec() {
     num = num < 0 ? 0 : num;
     count.innerText = num;
 
-    //INSERT INTO TEMPORARY CART
+    //INSERT INTO CART
     cart = { ...cart, [itemID]: { quantity: num } };
     if (cart[itemID].quantity == 0) {
         delete cart[itemID];
     }
-    console.log(cart);
 }
 
 //FUNCTION TO DEFINE THE FIRST FOR EACH PAGE OF THE LIST
