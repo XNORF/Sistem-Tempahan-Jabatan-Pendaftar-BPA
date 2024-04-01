@@ -7,18 +7,18 @@ module.exports = {
     mode: "development",
     entry: {
         main: path.resolve(__dirname, "src/js/main.js"),
+        smtp: path.resolve(__dirname, "src/js/smtp.js"),
         index: path.resolve(__dirname, "src/js/index.js"),
         home: path.resolve(__dirname, "src/js/home.js"),
         stationaries: path.resolve(__dirname, "src/js/stationaries.js"),
         vehicle: path.resolve(__dirname, "src/js/vehicle.js"),
-        admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
+        //admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
     },
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].js",
         clean: true,
     },
-
     devtool: "inline-source-map",
     devServer: {
         static: path.join(__dirname, "dist"),
@@ -96,10 +96,10 @@ module.exports = {
             template: path.resolve(__dirname, "src/html/vehicle.html"),
             chunks: ["vehicle"],
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             filename: "admindashboard.html",
             template: path.resolve(__dirname, "src/html/admindashboard.html"),
             chunks: ["admindashboard"],
-        }),
+        }),*/
     ],
 };

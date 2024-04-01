@@ -13,6 +13,19 @@ import { getFirestore, collection } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
+//EMAIL SETUP
+const smtp = require("./smtp.js");
+
+export function sendEmail(email, id) {
+    smtp.Email.send({
+        SecureToken: "d9ea2a21-3138-41b7-af4a-bb1f135cf354",
+        From: "spbpajp.official@gmail.com",
+        To: [email, "spbpajp.official@gmail.com"],
+        Subject: "Permohonan Alat Tulis [" + id + "]",
+        Body: "need to update content",
+    }).then((message) => alert(message));
+}
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 //MAIN CONFIG
 const firebaseConfig = {
