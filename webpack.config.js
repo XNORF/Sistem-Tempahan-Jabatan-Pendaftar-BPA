@@ -12,6 +12,7 @@ module.exports = {
         home: path.resolve(__dirname, "src/js/home.js"),
         stationaries: path.resolve(__dirname, "src/js/stationaries.js"),
         vehicle: path.resolve(__dirname, "src/js/vehicle.js"),
+        stationaries_history: path.resolve(__dirname, "src/js/stationaries-history.js"),
         //admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
     },
     output: {
@@ -95,6 +96,11 @@ module.exports = {
             filename: "vehicle.html",
             template: path.resolve(__dirname, "src/html/vehicle.html"),
             chunks: ["vehicle"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "stationaries-history.html",
+            template: path.resolve(__dirname, "src/html/stationaries-history.html"),
+            chunks: ["stationaries_history"],
         }),
         /*new HtmlWebpackPlugin({
             filename: "admindashboard.html",

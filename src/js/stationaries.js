@@ -212,3 +212,22 @@ function setPreviousList(doc, page) {
         previousFirstVisible.push(doc);
     }
 }
+
+//CART BUTTON HOVER TOGGLE
+document.getElementById("cartbtn").addEventListener("click", function() {
+    var cartBox = document.getElementById("cartbox");
+    if (cartBox.style.display === "block") {
+      cartBox.style.display = "none";
+    } else {
+      cartBox.style.display = "block";
+    }
+  });
+  
+  // Optional: Close the cart box if the user clicks outside of it
+  window.onclick = function(event) {
+    var cartBox = document.getElementById("cartbox");
+    var cartBtn = document.getElementById("cartbtn");
+    if (event.target !== cartBox && event.target !== cartBtn) {
+      cartBox.style.display = "none";
+    }
+  };
