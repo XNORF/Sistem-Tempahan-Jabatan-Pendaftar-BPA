@@ -352,4 +352,68 @@ $fontColor: rgb(250, 250, 250);
   .cartbtn:hover {
     background-color: #3e8e41;
   }
+
+  /*This is for stationaries history page*/
+  .team{
+    padding-top: 70px;
+  }
+
+  .stathist-dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+  }
+  
+  .dropdown-stathist {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content-stathist {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 10px;
+  }
+  
+  .dropdown-content-stathist label {
+    color: black;
+    padding: 8px 2px;
+    display: block;
+  }
+  .dropdown-content-stathist a:hover {background-color: #ddd;}
+  
+  .stathist-dropbtn:hover + .dropdown-content-stathist,
+  .dropdown-content-stathist:hover {
+    display: block;
+  }
+
+  .stathist-dropbtn:hover {
+    background-color: #3e8e41;
+  }
+
+  .redirect-btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .redirect-btn:hover {
+    background-color: #3d8140;
+    color: #ffffff;
+  }
 ///////////////////////////////////////////////////////////////////////////
