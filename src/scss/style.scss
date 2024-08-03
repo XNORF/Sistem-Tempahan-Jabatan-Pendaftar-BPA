@@ -416,4 +416,73 @@ $fontColor: rgb(250, 250, 250);
     background-color: #3d8140;
     color: #ffffff;
   }
+
+  // history request list //
+
+  .rh-list {
+    
+    position: relative;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 5px;
+    background: $white;
+    transition: 0.5s;
+    height: 100%;
+  }
+
+  .rh-list h1, .rh-list h4 {
+    margin: 0;
+  }
+  
+  .rh-list p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) { /* Tablets and smaller devices */
+    .rh-list {
+      text-align: left; /* Align text to the left on smaller screens */
+      width: 90%;
+      border-radius: 15px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .rh-list .col-3 {
+      flex-basis: 100%; /* Make each column take full width */
+      margin-bottom: 10px; /* Add some spacing between rows */
+    }
+  
+    .rh-list .col-3:last-child {
+      margin-bottom: 0; /* Remove margin for the last column */
+    }
+  
+    .rh-list h1, .rh-list h4 {
+      font-size: 1.3em; /* Adjust font size for smaller screens */
+    }
+    
+    .redirect-btn {
+      width: 50%; /* Make the button full width */
+      text-align: center; /* Center the text */
+      margin-top: 10px; /* Add some space above the button */
+    }
+  }
+  
+  @media (max-width: 480px) { /* Mobile devices */
+    .rh-list{
+        width: 90%;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rh-list h1, .rh-list h4 {
+      font-size: 1.2em; /* Further adjust font size for mobile */
+    }
+    
+    .redirect-btn {
+      font-size: 1em; /* Adjust button text size */
+      width: 80%;
+    }
+  }
 ///////////////////////////////////////////////////////////////////////////
