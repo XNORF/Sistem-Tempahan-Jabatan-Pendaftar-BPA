@@ -231,97 +231,103 @@ $fontColor: rgb(250, 250, 250);
 
 /*Custom css*/
 
-#SearchAlatTulis{
+#SearchAlatTulis {
     border-radius: 50px;
     border: grey 2px;
 }
 
-.round-50{
+.round-50 {
     border-radius: 50px;
 }
 
-.px-14{
+.px-14 {
     padding-right: 14px;
     padding-left: 14px;
 }
 
-.Mohonbtn{
+.Mohonbtn {
     position: fixed;
-      bottom: 20px; /* Adjust the distance from the bottom as needed */
-      right: 70px; /* Adjust the distance from the right as needed */
-      background-color: #007bff; /* Button background color */
-      color: #fff; /* Button text color */
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 70px; /* Adjust the distance from the right as needed */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.Mohonbtn:hover{
+.Mohonbtn:hover {
     background-color: #37517e;
 }
 
 .pagination a.page-link:hover,
 .pagination a.page-link:focus {
-  color: #ff0000 !important; /* Change this color to the desired hover color */
+    color: #ff0000 !important; /* Change this color to the desired hover color */
 }
 
-.sectioncards{
+.sectioncards {
     padding: 120px 0;
     display: flex;
     align-items: center;
     background-color: #3a638fd7;
 }
 .dropbtn {
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
-  }
-  
-  .dropdowncart {
+}
+
+.dropdowncart {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdowncart:hover .dropdown-content {display: block;}
-  
-  .dropdowncart:hover .dropbtn {background-color: #3e8e41;}
+}
 
-  /*cart*/
-  .cartbtn{
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdowncart:hover .dropdown-content {
+    display: block;
+}
+
+.dropdowncart:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/*cart*/
+.cartbtn {
     position: fixed;
-      bottom: 20px; /* Adjust the distance from the bottom as needed */
-      right: 180px; /* Adjust the distance from the right as needed */
-      background-color: #007bff; /* Button background color */
-      color: #fff; /* Button text color */
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 2;
-  }
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 180px; /* Adjust the distance from the right as needed */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+}
 
-  .cart-box{
+.cart-box {
     display: none;
     position: fixed;
     bottom: 70px;
@@ -330,12 +336,12 @@ $fontColor: rgb(250, 250, 250);
     min-width: 160px;
     max-height: 200px;
     overflow-y: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 5px;
-  }
+}
 
-  .cart-box a {
+.cart-box a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -343,11 +349,13 @@ $fontColor: rgb(250, 250, 250);
     position: relative;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  .cart-box a:hover {background-color: #ddd;}
+.cart-box a:hover {
+    background-color: #ddd;
+}
 
-  .delete-icon {
+.delete-icon {
     margin-left: 10px;
     cursor: pointer;
     color: red; /* Change to the desired color */
@@ -356,64 +364,66 @@ $fontColor: rgb(250, 250, 250);
 .delete-icon i {
     font-size: 16px; /* Adjust the size as needed */
 }
-  
+
 //   .cartbtn:hover + .cart-box,
 //   .cart-box:hover {
 //     display: block;
 //   }
 
-  .cartbtn:hover {
+.cartbtn:hover {
     background-color: #3e8e41;
-  }
+}
 
-  /*This is for stationaries history page*/
-  .team{
+/*This is for stationaries history page*/
+.team {
     padding-top: 70px;
-  }
+}
 
-  .stathist-dropbtn {
-    background-color: #04AA6D;
+.stathist-dropbtn {
+    background-color: #04aa6d;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     border-radius: 50px;
-  }
-  
-  .dropdown-stathist {
+}
+
+.dropdown-stathist {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content-stathist {
+}
+
+.dropdown-content-stathist {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 5px;
     padding: 10px 10px;
-  }
-  
-  .dropdown-content-stathist label {
+}
+
+.dropdown-content-stathist label {
     color: black;
     padding: 8px 2px;
     display: block;
-  }
-  .dropdown-content-stathist a:hover {background-color: #ddd;}
-  
-  .stathist-dropbtn:hover + .dropdown-content-stathist,
-  .dropdown-content-stathist:hover {
+}
+.dropdown-content-stathist a:hover {
+    background-color: #ddd;
+}
+
+.stathist-dropbtn:hover + .dropdown-content-stathist,
+.dropdown-content-stathist:hover {
     display: block;
-  }
+}
 
-  .stathist-dropbtn:hover {
+.stathist-dropbtn:hover {
     background-color: #3e8e41;
-  }
+}
 
-  .redirect-btn {
-    background-color: #04AA6D;
+.redirect-btn {
+    background-color: #04aa6d;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -423,17 +433,16 @@ $fontColor: rgb(250, 250, 250);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-  }
-  
-  .redirect-btn:hover {
+}
+
+.redirect-btn:hover {
     background-color: #3d8140;
     color: #ffffff;
-  }
+}
 
-  // history request list //
+// history request list //
 
-  .rh-list {
-    
+.rh-list {
     position: relative;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
@@ -441,82 +450,98 @@ $fontColor: rgb(250, 250, 250);
     background: $white;
     transition: 0.5s;
     height: 100%;
-  }
+}
 
-  .rh-list h1, .rh-list h4 {
+.rh-list h1,
+.rh-list h4 {
     margin: 0;
-  }
-  
-  .rh-list p {
+}
+
+.rh-list p {
     margin: 0;
     font-weight: bold;
-  }
-  
-  @media (max-width: 768px) { /* Tablets and smaller devices */
+}
+
+@media (max-width: 768px) {
+    /* Tablets and smaller devices */
     .rh-list {
-      text-align: left; /* Align text to the left on smaller screens */
-      width: 90%;
-      border-radius: 15px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  
-    .rh-list .col-3 {
-      flex-basis: 100%; /* Make each column take full width */
-      margin-bottom: 10px; /* Add some spacing between rows */
-    }
-  
-    .rh-list .col-3:last-child {
-      margin-bottom: 0; /* Remove margin for the last column */
-    }
-  
-    .rh-list h1, .rh-list h4 {
-      font-size: 1.3em; /* Adjust font size for smaller screens */
-    }
-    
-    .redirect-btn {
-      width: 50%; /* Make the button full width */
-      text-align: center; /* Center the text */
-      margin-top: 10px; /* Add some space above the button */
-    }
-  }
-  
-  @media (max-width: 480px) { /* Mobile devices */
-    .rh-list{
+        text-align: left; /* Align text to the left on smaller screens */
         width: 90%;
         border-radius: 15px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .rh-list h1, .rh-list h4 {
-      font-size: 1.2em; /* Further adjust font size for mobile */
+    .rh-list .col-3 {
+        flex-basis: 100%; /* Make each column take full width */
+        margin-bottom: 10px; /* Add some spacing between rows */
     }
-    
-    .redirect-btn {
-      font-size: 1em; /* Adjust button text size */
-      width: 80%;
-    }
-  }
 
-  //eye icon
-  .eye-icon {
+    .rh-list .col-3:last-child {
+        margin-bottom: 0; /* Remove margin for the last column */
+    }
+
+    .rh-list h1,
+    .rh-list h4 {
+        font-size: 1.3em; /* Adjust font size for smaller screens */
+    }
+
+    .redirect-btn {
+        width: 50%; /* Make the button full width */
+        text-align: center; /* Center the text */
+        margin-top: 10px; /* Add some space above the button */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile devices */
+    .rh-list {
+        width: 90%;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rh-list h1,
+    .rh-list h4 {
+        font-size: 1.2em; /* Further adjust font size for mobile */
+    }
+
+    .redirect-btn {
+        font-size: 1em; /* Adjust button text size */
+        width: 80%;
+    }
+}
+
+//eye icon
+.eye-icon {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-  }
-  
-  .homebtn{
-    vertical-align: middle;
-    
-  }
+}
 
-  .homebtn a{
+.homebtn {
+    vertical-align: middle;
+}
+
+.homebtn a {
     width: auto;
     height: 50px;
     font-size: 20px;
     align-content: center;
-  }
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.flex-wrapper {
+    background-color: #cbd6e9;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
 ///////////////////////////////////////////////////////////////////////////
