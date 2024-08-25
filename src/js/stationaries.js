@@ -231,3 +231,9 @@ document.getElementById("cartbtn").addEventListener("click", function() {
       cartBox.style.display = "none";
     }
   };
+
+  //FUNCTION DELETE TAH BETUL TAK SEBAB AKU CHATGPT
+  function deleteItem(element) {
+    const item = element.closest('a');
+    item.remove();
+}

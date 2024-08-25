@@ -11,6 +11,8 @@
         <!-- Favicons -->
         <link href="../img/favicon.png" rel="icon" />
         <link href="../img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
@@ -691,12 +693,45 @@
         <div class="" id="preloader"></div>
           <button class="cartbtn" id="cartbtn">Dropdown</button>
           <div class="cart-box" id="cartbox">
-            <a href="#">1. Battery AA - 2</a>
-            <a href="#">2. pensil - 4</a>
-            <a href="#">3. marker merah - 10</a>
-            <a href="#">4. pemadam papan hitam - 1100</a>
-            <a href="#">5. pembaris - 30</a>
-          </div>
+            <a href="#">
+                1. Battery AA - 2
+                <span class="delete-icon" onclick="deleteItem(this)">
+                    <i class="fas fa-trash"></i>
+                </span>
+            </a>
+            <a href="#">
+                2. Pensil - 4
+                <span class="delete-icon" onclick="deleteItem(this)">
+                    <i class="fas fa-trash"></i>
+                </span>
+            </a>
+            <a href="#">
+                3. Marker Merah - 10
+                <span class="delete-icon" onclick="deleteItem(this)">
+                    <i class="fas fa-trash"></i>
+                </span>
+            </a>
+            <a href="#">
+                4. Pemadam Papan Hitam - 1100
+                <span class="delete-icon" onclick="deleteItem(this)">
+                    <i class="fas fa-trash"></i>
+                </span>
+            </a>
+            <a href="#">
+              4. Pemadam Papan Hitam - 1100
+              <span class="delete-icon" onclick="deleteItem(this)">
+                  <i class="fas fa-trash"></i>
+              </span>
+          </a>
+          <a href="#">
+            4. Pemadam Papan Hitam - 1100
+            <span class="delete-icon" onclick="deleteItem(this)">
+                <i class="fas fa-trash"></i>
+            </span>
+          </a>
+        </div>
+        
+        
           <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
         <button class="Mohonbtn" id="Mohonbtn" type="submit">Mohon</button>
     </body>
