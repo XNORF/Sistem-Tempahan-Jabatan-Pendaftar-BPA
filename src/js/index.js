@@ -1,4 +1,5 @@
 ////////////////////////////MUST HAVE////////////////////////////
+import $ from "jquery";
 const main = require("./main.js");
 /////////////////////////////////////////////////////////////////
 
@@ -24,29 +25,47 @@ const loginForm = document.querySelector("#loginForm");
 function togglePassword() {
     var passwordField = document.getElementById("form2Example27");
     var eyeIcon = document.getElementById("toggleEye");
-    
+
     if (passwordField.type === "password") {
-      passwordField.type = "text";
-      eyeIcon.classList.remove("fa-eye");
-      eyeIcon.classList.add("fa-eye-slash");
+        passwordField.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
     } else {
-      passwordField.type = "password";
-      eyeIcon.classList.remove("fa-eye-slash");
-      eyeIcon.classList.add("fa-eye");
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
     }
 }
 
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    const type = loginForm.userType.value;
     const email = loginForm.email.value;
     const password = loginForm.password.value;
-    console.log(email + " " + password);
+    console.log(email + " " + password + " " + type);
+
     main.signInWithEmailAndPassword(main.auth, email, password)
         .then((cred) => {
             alert("Sign in successful");
-            window.location.href = "/home.html";
+            if (type == "admin") {
+                window.location.href = "/admin-home.html";
+            } else {
+                window.location.href = "/home.html";
+            }
         })
         .catch((error) => {
-            console.log(error.code);
+            alert(error.code);
         });
+});
+
+$("#tab-user").on("click", (e) => {
+    $("#tab-user").addClass("active");
+    $("#tab-admin").removeClass("active");
+    $("#userType").val("user");
+});
+
+$("#tab-admin").on("click", (e) => {
+    $("#tab-admin").addClass("active");
+    $("#tab-user").removeClass("active");
+    $("#userType").val("admin");
 });
