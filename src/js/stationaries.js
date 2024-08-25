@@ -75,7 +75,18 @@ search.addEventListener("input", (e) => {
 //SUBMIT REQUEST - ADD INTO FIRESTORE & SEND EMAIL
 submit.addEventListener("click", (e) => {
     e.target.disabled = true;
-    var needBefore = prompt("Tarikh diperlukan sebelum?", "31/12/2024");
+    var neededDate = prompt("Tarikh diperlukan", "31/12/2024");
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+
+    const requestDate = dd + "/" + mm + "/" + yyyy;
+
     //CHECK IF EMPTY, EMPTY JSON IS 2
     if (JSON.stringify(cart).length === 2) {
         console.log("empty");
@@ -83,8 +94,7 @@ submit.addEventListener("click", (e) => {
         main.addDoc(main.requestDB, {
             type: "stationary",
             status: "pending",
-            request: { cart, needBefore },
-            approved: {},
+            request: { cart, neededDate, requestDate, approvedDate: "-" },
             userID: currentUser.uid,
         })
             .then((success) => {
@@ -92,6 +102,7 @@ submit.addEventListener("click", (e) => {
                 const subject = "Permohonan Alat Tulis [" + success.id + "]";
                 const body = ``;
                 //main.sendEmail(currentUser.email, subject, body);
+                window.location.href = "request-detail.html?id=" + success.id;
             })
             .catch((error) => {
                 console.log(error);
@@ -206,7 +217,7 @@ function incDec() {
     count.innerText = num;
 
     //INSERT INTO CART
-    cart = { ...cart, [itemID]: { name: itemName, quantity: num } };
+    cart = { ...cart, [itemID]: { name: itemName, quantity: num, approved: "-" } };
     if (cart[itemID].quantity == 0) {
         delete cart[itemID];
     }
@@ -223,7 +234,6 @@ function setPreviousList(doc, page) {
 //CART BUTTON HOVER TOGGLE
 document.getElementById("cartbtn").addEventListener("click", function () {
     var cartBox = document.getElementById("cartbox");
-    console.log(cart);
 
     if (JSON.stringify(cart).length === 2) {
         $("#cartbox a").remove();
@@ -232,7 +242,7 @@ document.getElementById("cartbtn").addEventListener("click", function () {
         $("#cartbox a").remove();
         var index = 1;
         $.each(cart, function (i, item) {
-            cartBox.innerHTML += `<a href="#">` + index + `. ` + item.name + ` - ` + item.quantity + `</a>`;
+            cartBox.innerHTML += `<a href="#" id="` + i + `">` + index + `. ` + item.name + ` - ` + item.quantity + `</a>`;
             index++;
         });
     }
@@ -250,10 +260,4 @@ window.onclick = function (event) {
     if (event.target !== cartBox && event.target !== cartBtn) {
         cartBox.style.display = "none";
     }
-  };
-
-  //FUNCTION DELETE TAH BETUL TAK SEBAB AKU CHATGPT
-  function deleteItem(element) {
-    const item = element.closest('a');
-    item.remove();
-}
+};
