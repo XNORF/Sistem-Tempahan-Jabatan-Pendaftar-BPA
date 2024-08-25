@@ -72,20 +72,26 @@ search.addEventListener("input", (e) => {
     $("#currentPage").text(currentPage);
 });
 
-//SUBMIT REQUEST - ADD CART INTO FIRESTORE & SEND EMAIL
+//SUBMIT REQUEST - ADD INTO FIRESTORE & SEND EMAIL
 submit.addEventListener("click", (e) => {
     e.target.disabled = true;
+    var needBefore = prompt("Tarikh diperlukan sebelum?", "31/12/2024");
     //CHECK IF EMPTY, EMPTY JSON IS 2
     if (JSON.stringify(cart).length === 2) {
         console.log("empty");
     } else {
-        main.addDoc(main.cartDB, {
+        main.addDoc(main.requestDB, {
+            type: "stationary",
+            status: "pending",
+            request: { cart, needBefore },
             approved: {},
-            request: cart,
             userID: currentUser.uid,
         })
             .then((success) => {
-                main.sendEmail(currentUser.email, success.id);
+                console.log("success");
+                const subject = "Permohonan Alat Tulis [" + success.id + "]";
+                const body = ``;
+                //main.sendEmail(currentUser.email, subject, body);
             })
             .catch((error) => {
                 console.log(error);
@@ -128,7 +134,7 @@ function getStationary(q) {
                     <div>
                         <div class="row align-items-center">
                             <div class="col-5">
-                                <h2 style="color: #37517e"><b>` +
+                                <h2 style="color: #37517e"><b id="itemName">` +
                     doc.data().name +
                     `</b></h2>
                             </div>
@@ -189,6 +195,7 @@ function incDec() {
     //ITEM COUNT
     const count = this.closest(".member").querySelector("#item-count");
     const itemID = this.closest(".member").querySelector("#itemID").innerText;
+    const itemName = this.closest(".member").querySelector("#itemName").innerText;
     var num = parseInt(count.innerText);
     if (this.matches("#up")) {
         num++;
@@ -199,7 +206,7 @@ function incDec() {
     count.innerText = num;
 
     //INSERT INTO CART
-    cart = { ...cart, [itemID]: { quantity: num } };
+    cart = { ...cart, [itemID]: { name: itemName, quantity: num } };
     if (cart[itemID].quantity == 0) {
         delete cart[itemID];
     }
@@ -214,21 +221,34 @@ function setPreviousList(doc, page) {
 }
 
 //CART BUTTON HOVER TOGGLE
-document.getElementById("cartbtn").addEventListener("click", function() {
+document.getElementById("cartbtn").addEventListener("click", function () {
     var cartBox = document.getElementById("cartbox");
-    if (cartBox.style.display === "block") {
-      cartBox.style.display = "none";
+    console.log(cart);
+
+    if (JSON.stringify(cart).length === 2) {
+        $("#cartbox a").remove();
+        cartBox.innerHTML += `<a href='#'>Tiada alat tulis di dalam cart</a>`;
     } else {
-      cartBox.style.display = "block";
+        $("#cartbox a").remove();
+        var index = 1;
+        $.each(cart, function (i, item) {
+            cartBox.innerHTML += `<a href="#">` + index + `. ` + item.name + ` - ` + item.quantity + `</a>`;
+            index++;
+        });
     }
-  });
-  
-  // Optional: Close the cart box if the user clicks outside of it
-  window.onclick = function(event) {
+    if (cartBox.style.display === "block") {
+        cartBox.style.display = "none";
+    } else {
+        cartBox.style.display = "block";
+    }
+});
+
+// Optional: Close the cart box if the user clicks outside of it
+window.onclick = function (event) {
     var cartBox = document.getElementById("cartbox");
     var cartBtn = document.getElementById("cartbtn");
     if (event.target !== cartBox && event.target !== cartBtn) {
-      cartBox.style.display = "none";
+        cartBox.style.display = "none";
     }
   };
 

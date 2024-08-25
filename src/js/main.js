@@ -16,13 +16,13 @@ import { getStorage } from "firebase/storage";
 //EMAIL SETUP
 const smtp = require("./smtp.js");
 
-export function sendEmail(email, id) {
+export function sendEmail(email, subject, body) {
     smtp.Email.send({
         SecureToken: "d9ea2a21-3138-41b7-af4a-bb1f135cf354",
         From: "spbpajp.official@gmail.com",
         To: [email, "spbpajp.official@gmail.com"],
-        Subject: "Permohonan Alat Tulis [" + id + "]",
-        Body: "need to update content",
+        Subject: subject,
+        Body: body,
     }).then((message) => alert(message));
 }
 
@@ -50,7 +50,7 @@ export const storage = getStorage(app);
 //Database collections (aka tables)
 export const usersDB = collection(db, "users");
 export const stationaryDB = collection(db, "stationaries");
-export const cartDB = collection(db, "cart");
+export const requestDB = collection(db, "request");
 
 //Export necessary functions from firebase
 export { getDoc, getDocs, addDoc, deleteDoc, updateDoc, setDoc, doc, onSnapshot, query, where, orderBy, serverTimestamp, or, and, startAfter, startAt, limit, getCountFromServer } from "firebase/firestore";
