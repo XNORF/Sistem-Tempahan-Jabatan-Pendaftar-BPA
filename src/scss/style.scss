@@ -485,4 +485,14 @@ $fontColor: rgb(250, 250, 250);
       width: 80%;
     }
   }
+
+  //eye icon
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
 ///////////////////////////////////////////////////////////////////////////
