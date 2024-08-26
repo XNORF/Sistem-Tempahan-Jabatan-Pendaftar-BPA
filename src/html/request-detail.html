@@ -25,12 +25,12 @@
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto" href="dashboard.html">Dashboard</a></li>
+                        <li><a class="nav-link scrollto" href="stationaries-history.html">Rekod Permohonan</a></li>
                         <li class="dropdown">
                             <a class="nav-link scrollto active" href="stationaries.html">Alat Tulis</a>
-                            <ul>
+                            <!-- <ul>
                                 <li><a href="stationaries-history.html">Request History</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li>
                             <a class="nav-link scrollto" href="meetingroom.html">Bilik Mesyuarat</a>
@@ -41,7 +41,7 @@
                         <li class="dropdown">
                             <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
-                                <li><a href="profile.html">Profil</a></li>
+                                <!-- <li><a href="profile.html">Profil</a></li> -->
                                 <li><a href="index.html">Log Keluar</a></li>
                             </ul>
                         </li>
@@ -59,12 +59,13 @@
                         <h2>Permohonan</h2>
                     </div>
 
-                    <table class="table table-hover table-bordered">
+                    <table class="table table-hover table-bordered" >
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col" class="textCenter">Tarikh Memohon</th>
                                 <th scope="col" class="textCenter">Tarikh Diperlukan</th>
                                 <th scope="col" class="textCenter">Tarikh Approved</th>
+                                <!-- <th scope="col" class="textCenter">Tarikh Perlu Dipulangkan</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -72,6 +73,7 @@
                                 <th scope="row" class="textCenter" id="requestDate">-</th>
                                 <th scope="row" class="textCenter" id="neededDate">-</th>
                                 <th scope="row" class="textCenter" id="approvedDate">-</th>
+                                <!-- <th scope="row" class="textCenter" id="approvedDate">-</th> -->
                             </tr>
                         </tbody>
                     </table>
@@ -85,7 +87,7 @@
                                 <th scope="col">Kuantiti Diluluskan</th>
                             </tr>
                         </thead>
-                        <tbody id="tableContent">
+                        <tbody id="tableContent" >
                             <tr>
                                 <th scope="row"></th>
                                 <td>-</td>
@@ -94,6 +96,11 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div id="reurn-content">
+                        <p>Anda diminta untuk membuat pulangan pinjaman pada Tarikh <span style="color: blue;">07/04/2024</span>.</p>
+                        <p>Ingin membuat pulangan pinjaman? </p>
+                        <button class="d-flex justify-content-end ms-auto rounded btn btn-primary">Pulangkan</button>
+                    </div>
                 </div>
             </section>
             <!-- End #main -->

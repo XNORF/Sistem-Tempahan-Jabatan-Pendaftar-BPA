@@ -33,7 +33,7 @@ await main.onAuthStateChanged(main.auth, (user) => {
                         `</h1>
                                 </div>
                                 <div class="col-3 member-info ps-0">
-                                    <p>Diperlukan sebelum:</p>
+                                    <p>Tarikh Permohonan:</p>
                                     <h4>` +
                         data.request.neededDate +
                         `</h4>
