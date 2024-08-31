@@ -50,6 +50,8 @@ export const storage = getStorage(app);
 //Database collections (aka tables)
 export const usersDB = collection(db, "users");
 export const stationaryDB = collection(db, "stationaries");
+export const roomDB = collection(db, "room");
+export const vehicleDB = collection(db, "vehicle");
 export const requestDB = collection(db, "request");
 
 //Export necessary functions from firebase

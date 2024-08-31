@@ -1,0 +1,272 @@
+<html>
+    <body>
+        <div class="container-scroller d-flex">
+            <main>
+                <div class="user">
+                    <h1>User functions</h1>
+                    <div class="viewUser">
+                        <h2>View User</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombor Pekerja</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Emel</th>
+                                    <th scope="col">Nombor Telefon</th>
+                                    <th scope="col">Jenis Akses</th>
+                                    <th scope="col">Kemas kini</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userList">
+                                <tr id="userID">
+                                    <th scope="row">1</th>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><button class="btn btn-primary updateUserBtn" id="userID">Kemas kini</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="UserModal">
+                        <h2>Inside Modal</h2>
+                        <div class="addUser">
+                            <h3>Add User</h3>
+                            <form id="addUserForm">
+                                <label for="name">Nama:</label><br />
+                                <input type="text" name="name" id="name" required /><br />
+                                <label for="empID">Nombor Pekerja:</label><br />
+                                <input type="text" name="empID" id="empID" required /><br />
+                                <label for="phone">Nombor Telefon:</label><br />
+                                <input type="text" name="phone" id="phone" required /><br />
+                                <label for="email">Emel:</label><br />
+                                <input type="text" name="email" id="email" required /><br />
+                                <button id="addUserBtn" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="updateUser">
+                            <h3>Update User</h3>
+                            <form id="updateUserForm">
+                                <input type="hidden" name="id" id="id" /><br />
+                                <label for="name">Nama:</label><br />
+                                <input type="text" name="name" id="name" required /><br />
+                                <label for="empID">Nombor Pekerja:</label><br />
+                                <input type="text" name="empID" id="empID" required /><br />
+                                <label for="phone">Nombor Telefon:</label><br />
+                                <input type="text" name="phone" id="phone" required /><br />
+                                <label for="email">Emel:</label><br />
+                                <input type="text" name="email" id="email" required /><br />
+                                <button class="btn btn-primary">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="requests">
+                    <h1>Requests functions</h1>
+                    <div class="viewRequest">
+                        <h2>View Request</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Jenis Permohonan</th>
+                                    <th scope="col">Nama Pemohon</th>
+                                    <th scope="col">Tarikh Diperlukan</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Tindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requestList">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><a href="" class="btn btn-primary">Lebih lanjut</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="approve">
+                        <div class="stationary"></div>
+                        <div class="vehicle"></div>
+                        <div class="room"></div>
+                    </div>
+                </div>
+                <div class="assets">
+                    <h1>Assets functions</h1>
+
+                    <div class="stationary">
+                        <h2>Stationary</h2>
+
+                        <div class="viewStationary">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Alat Tulis</th>
+                                        <th scope="col">Kuantiti stok</th>
+                                        <th scope="col">Tindakan</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="stationaryList">
+                                    <tr id="stationaryID">
+                                        <th scope="row">1</th>
+                                        <td>Pensel</td>
+                                        <td>2</td>
+                                        <td><button class="btn btn-primary updateStationaryBtn" id="stationaryID">Kemas kini</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="stationaryModal">
+                            <h3>Inside Modal</h3>
+                            <div class="add">
+                                <h4>Add Stationary</h4>
+                                <form id="addStationaryForm">
+                                    <label for="name">Nama Alat Tulis:</label><br />
+                                    <input type="text" name="name" id="name" required /><br />
+                                    <label for="empID">Kuantiti:</label><br />
+                                    <input type="number" name="quantity" id="quantity" required /><br />
+                                    <button class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                            <div class="update">
+                                <h4>Update / Delete Stationary</h4>
+                                <form id="updateStationaryForm">
+                                    <label for="name">Nama Alat Tulis:</label><br />
+                                    <input type="text" name="name" id="name" required /><br />
+                                    <label for="empID">Kuantiti:</label><br />
+                                    <input type="number" name="quantity" id="quantity" required /><br />
+                                    <button class="btn btn-primary">Update</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicle">
+                        <h2>Vehicle</h2>
+                        <div class="viewVehicle">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Kenderaan</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Tindakan</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vehicleList">
+                                    <tr id="vehicleID">
+                                        <th scope="row">1</th>
+                                        <td>Toyota</td>
+                                        <td>Available</td>
+                                        <td><button class="btn btn-primary updateVehicleBtn" id="vehicleID">Kemas kini</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="vehicleModal">
+                            <h3>Inside Modal</h3>
+                            <div class="add">
+                                <h4>Add Vehicle</h4>
+                                <form id="addVehicleForm">
+                                    <label for="name">Nama Kenderaan:</label><br />
+                                    <input type="text" name="name" id="name" required /><br />
+                                    <label for="status">Status:</label><br />
+                                    <select name="status" id="status" required>
+                                        <option selected value="Available">Available</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                    </select>
+                                    <br />
+                                    <button class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                            <div class="update">
+                                <h4>Update / Delete Vehicle</h4>
+                                <form id="updateVehicleForm">
+                                    <label for="name">Nama Kenderaan:</label><br />
+                                    <input type="text" name="name" id="name" required /><br />
+                                    <label for="status">Status:</label><br />
+                                    <select name="status" id="status" required>
+                                        <option selected value="Available">Available</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                    </select>
+                                    <br />
+                                    <button class="btn btn-primary">Update</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room">
+                        <h2>Room</h2>
+
+                        <div class="viewRoom">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Bilik</th>
+                                        <th scope="col">Lokasi</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Tindakan</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="roomList">
+                                    <tr id="roomID">
+                                        <th scope="row">1</th>
+                                        <td>Bilik Mesyuarat abcde</td>
+                                        <td>Aras 2, Bangunan F54</td>
+                                        <td>Available</td>
+                                        <td><button class="btn btn-primary updateRoomBtn" id="roomID">Kemas kini</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="roomModal">
+                            <h3>Inside Modal</h3>
+                            <div class="add">
+                                <h4>Add Room</h4>
+                                <form id="addRoomForm">
+                                    <label for="name">Nama Bilik:</label><br />
+                                    <input type="text" name="name" id="name" required /><br />
+                                    <label for="status">Status:</label><br />
+                                    <select name="status" id="status">
+                                        <option selected value="Available">Available</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                    </select>
+                                    <br />
+                                    <button class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                            <div class="update">
+                                <h4>Update / Delete Room</h4>
+                                <form id="updateRoomForm">
+                                    <label for="name">Nama Bilik:</label><br />
+                                    <input type="text" name="name" id="name" required /><br />
+                                    <label for="status">Status:</label><br />
+                                    <select name="status" id="status">
+                                        <option selected value="Available">Available</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                    </select>
+                                    <br />
+                                    <button class="btn btn-primary">Update</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
