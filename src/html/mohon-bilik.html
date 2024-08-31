@@ -100,7 +100,7 @@
                     <div class="row">
                       <div class="form-group col-md-4">
                         <label for="name">Pilih Sesi</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" required>
                           <option selected disabled value="" style="display: none;"></option>
                           <option value="1">Sesi Pagi</option>
                           <option value="2">Sesi Petang</option>
@@ -115,7 +115,6 @@
                             class="form-control"
                             name="layout-upload"
                             id="layout-upload"
-                            required
                             />
                           </div>
                           <div class="col-1 ps-0 d-flex justify-content-start">
@@ -128,7 +127,7 @@
                       </div>
                       <div class="form-group col-md-4">
                         <label for="showSection">Tempahan Jamuan</label>
-                        <select class="form-select" aria-label="Default select example" id="showSection" name="showSection" onchange="toggleSection2(this.value)">
+                        <select class="form-select" aria-label="Default select example" id="showSection" name="showSection" onchange="toggleSection2(this.value)" required>
                           <option selected disabled value="" style="display: none;"></option>
                           <option value="1">Ya</option>
                           <option value="2">Tidak</option>
@@ -156,7 +155,7 @@
                           </div>
                           <div class="form-group col-md-6">
                             <label for="name">Jenis Jamuan</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" required>
                               <option selected disabled value="" style="display: none;"></option>
                               <option value="1">Minum Pagi sahaja (RM6 - RM8)</option>
                               <option value="2">Makan Tengah hari Sahaja (RM12)</option>
@@ -174,14 +173,13 @@
                               class="form-control"
                               name="message"
                               rows="1"
-                              required
                             ></textarea>
                           </div>
                         </div>
                         <div class="row">
                           <div class="form-group col-md-6">
                             <label for="name">Katerer Pilihan</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" required>
                               <option selected disabled value="" style="display: none;"></option>
                               <option value="1">HW EXCELLENCE (SKM)</option>
                               <option value="2">ZHAFRI CATERING (JHB)</option>
@@ -198,7 +196,6 @@
                               name="name"
                               class="form-control"
                               id="name"
-                              required
                             />
                           </div>
                         </div>
@@ -238,7 +235,6 @@
                       class="form-control"
                       name="message"
                       rows="10"
-                      required
                     ></textarea>
                   </div>
                   <div class="my-3">
@@ -249,7 +245,7 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Mohon</button>
                   </div>
                 </form>
               </div>

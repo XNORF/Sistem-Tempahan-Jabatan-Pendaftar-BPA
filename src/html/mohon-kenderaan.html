@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Stationaries | SPBPAJP</title>
+    <title>Borang Permohonan Kenderaan | SPBPAJP</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -31,10 +31,10 @@
                         <a class="nav-link scrollto" href="stationaries.html">Alat Tulis</a>
                     </li>
                     <li>
-                        <a class="nav-link scrollto active" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
+                        <a class="nav-link scrollto" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
                     </li>
                     <li>
-                        <a class="nav-link scrollto" href="vehicle.html">Kenderaan</a>
+                        <a class="nav-link scrollto active" href="vehicle.html">Kenderaan</a>
                     </li>
                     <li class="dropdown">
                         <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
@@ -53,9 +53,8 @@
     <!-- ======= Team Section ======= -->
     <section id="team" class="contact section-bg">
         <div class="container" data-aos="fade-up">
-            <div class="section-title pt-4">
-                <h2>Bilik Mesyuarat SRAdS</h2>
-                <p>Terletak di Aras 2, Bangunan F54</p>
+            <div class="section-title pt-4 pb-1">
+                <h2>Proton Waja</h2>
             </div>
 
             <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
@@ -75,6 +74,16 @@
                         required
                       />
                     </div>
+                    <div class="form-group col-md-12">
+                        <label for="name">Tempat Program</label>
+                        <input
+                          type="text"
+                          name="name"
+                          class="form-control"
+                          id="name"
+                          required
+                        />
+                      </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                         <label for="name">Tarikh Mula Program</label>
@@ -97,19 +106,20 @@
                             />
                         </div>
                     </div>
-                    <div class="row">
-                      <div class="form-group col-md-4">
-                        <label for="name">Pilih Sesi</label>
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected disabled value="" style="display: none;"></option>
-                          <option value="1">Sesi Pagi</option>
-                          <option value="2">Sesi Petang</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-4">
+                    <div class="form-group col-md-12">
+                        <label for="name">Bilangan Penumpang ( Sila nyatakan jika terdapat penumpang luar.)</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="bilangan"
+                            id="bilangan"
+                            required
+                        />
+                    </div>
+                    <div class="form-group col-md-12">
                         <div class="row">
                           <div class="col-11 pe-0">
-                            <label for="name">Cadangan Layout (Sekiranya ada)</label>
+                            <label for="name">Dokumen Sokongan (Surat Arahan / Senarai Penumpang bagi tempahan UTMFleet)</label>
                             <input
                             type="file"
                             class="form-control"
@@ -125,122 +135,31 @@
                             </span>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="showSection">Tempahan Jamuan</label>
-                        <select class="form-select" aria-label="Default select example" id="showSection" name="showSection" onchange="toggleSection2(this.value)">
-                          <option selected disabled value="" style="display: none;"></option>
-                          <option value="1">Ya</option>
-                          <option value="2">Tidak</option>
-                        </select>
-                      </div>
+                    </div>
+                    <div class="row">
+                        <h3>Butiran Pemandu</h3>
+                        <div class="form-group col-md-6">
+                            <label for="name">Nama Pemandu</label>
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                id="name"
+                            />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Jawatan Pemandu</label>
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                id="name"
+                            />
+                        </div>
                     </div>
                     
-                    <div class="row">
-                      
-                    </div>
-
-                    <div class="row">
-                      <div id="section2" class="mt-4" style="display: none;">
-                        <h3>Tempahan Jamuan</h3>
-                        <div class="row">
-                          <div class="form-group col-md-6">
-                            <label for="name">Bilangan Jemputan (Sila nyatakan jika terdapat jemputan luar.)</label>
-                            <input
-                                type="number"
-                                class="form-control"
-                                name="bilangan"
-                                id="bilangan"
-                                required
-                            />
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="name">Jenis Jamuan</label>
-                            <select class="form-select" aria-label="Default select example">
-                              <option selected disabled value="" style="display: none;"></option>
-                              <option value="1">Minum Pagi sahaja (RM6 - RM8)</option>
-                              <option value="2">Makan Tengah hari Sahaja (RM12)</option>
-                              <option value="3">Minum Petang Sahaja (RM6 - RM8)</option>
-                              <option value="4">Minum Pagi + Makan Tengah hari (RM12 - RM14)</option>
-                              <option value="5">Minum Pagi + Makan Tengah hari + Minum Petang (RM18 - RM20)</option>
-                              <option value="6">Minum Pagi + Minum Petang (RM6 - RM8)</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="form-group col-md-12">
-                            <label for="name">Cadangan Menu (Sekiranya ada)</label>
-                            <textarea
-                              class="form-control"
-                              name="message"
-                              rows="1"
-                              required
-                            ></textarea>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="form-group col-md-6">
-                            <label for="name">Katerer Pilihan</label>
-                            <select class="form-select" aria-label="Default select example">
-                              <option selected disabled value="" style="display: none;"></option>
-                              <option value="1">HW EXCELLENCE (SKM)</option>
-                              <option value="2">ZHAFRI CATERING (JHB)</option>
-                              <option value="3">TOKSU CAFE (FABU)</option>
-                              <option value="4">DOUBLE A&Z (ALONG CATERER)</option>
-                              <option value="5">SRI TEBRAU</option>
-                              <option value="6">CADANGAN KATERER LAIN</option>
-                            </select>
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="name">Cadangan Katerer Lain</label>
-                            <input
-                              type="text"
-                              name="name"
-                              class="form-control"
-                              id="name"
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="form-group col-md-12">
-                            <div class="row">
-                              <div class="col-11 pe-0">
-                                <label for="name">Dokumen Sokongan (Surat Arahan/ Surat Panggilan Mesyuarat atau lain-lain)</label>
-                                <input
-                                type="file"
-                                class="form-control"
-                                name="layout-upload"
-                                id="layout-upload"
-                                required
-                                />
-                              </div>
-                              <div class="col-1 ps-0 d-flex justify-content-start">
-                                <span class="info-icon align-self-center">
-                                  <i class="bi bi-info-circle-fill"></i>
-                                  <div class="tooltip-custom">Max saiz: 5MB dalam bentuk pdf sahaja</div>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     
-                  <div class="form-group">
-                    <label for="name">Keperluan lain-lain</label>
-                    <span class="info-icon align-self-center">
-                      <i class="bi bi-info-circle-fill"></i>
-                      <div class="d-flex">
-                      <div class="tooltip-custom-2 ms-5">Contoh: Menggunakan untuk mesyuarat persidangan, <br> perlukan extension (nyatakan bilangannya sekali)</div></div>
-                    </span>
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      rows="10"
-                      required
-                    ></textarea>
-                  </div>
+                  
                   <div class="my-3">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
@@ -249,7 +168,7 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Mohon</button>
                   </div>
                 </form>
               </div>
