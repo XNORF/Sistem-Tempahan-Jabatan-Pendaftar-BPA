@@ -553,4 +553,82 @@ $fontColor: rgb(250, 250, 250);
     width: 100%;
     height: 500px;
 }
+
+@media (max-width: 480px){
+    .jarak-pb-3{
+        padding-bottom: 1rem !important;
+    }
+
+    .jarak-pt-3{
+        padding-top: 1rem !important;
+    }
+}
+
+.info-icon {
+    position: relative;
+    margin-left: 5px;
+    margin-top: 26px;
+    cursor: pointer;
+    color: #555;
+}
+
+.tooltip-custom {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #555;
+    color: #fff;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    width: max-content;
+}
+
+.info-icon:hover .tooltip-custom  {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-custom-2 {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: -4%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    background-color: #555;
+    color: #fff;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .tooltip-custom-2 {
+        top: 50%;
+        transform: translateX(-50%);
+        margin-top: 0.5rem;
+    }
+ 
+    .tooltip-custom {
+        top: 60%;
+        left: -100px;
+        transform: translateX(-50%);
+        margin-top: 0.5rem;
+    }
+
+}
+.info-icon:hover .tooltip-custom-2  {
+    visibility: visible;
+    opacity: 1;
+}
 ///////////////////////////////////////////////////////////////////////////

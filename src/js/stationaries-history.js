@@ -39,7 +39,7 @@ await main.onAuthStateChanged(main.auth, (user) => {
                         `</h4>
                                 </div>
                                 <div class="col-3">
-                                    <p>Diluluskan pada:</p>
+                                    <p>Tarikh Diluluskan:</p>
                                     <h4>` +
                         data.request.approvedDate +
                         `</h4>
@@ -47,7 +47,7 @@ await main.onAuthStateChanged(main.auth, (user) => {
                                 <div class="col-3">
                                     <a href="request-detail.html?id=` +
                         doc.id +
-                        `" class="redirect-btn">Secara Terperinci</a>
+                        `" class="redirect-btn">Maklumat Tempahan</a>
                                 </div>
                             </div>
                         </div>
