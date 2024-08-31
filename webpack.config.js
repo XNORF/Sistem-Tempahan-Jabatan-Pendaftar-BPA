@@ -20,6 +20,7 @@ module.exports = {
     bilik_mesyuarat: path.resolve(__dirname, "src/js/bilik-mesyuarat.js"),
     mohon_bilik: path.resolve(__dirname, "src/js/mohon-bilik.js"),
     admin_home: path.resolve(__dirname, "src/js/admin-home.js"),
+    mohon_kenderaan: path.resolve(__dirname, "src/js/mohon-kenderaan.js"),
     //admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
   },
   output: {
@@ -128,6 +129,11 @@ module.exports = {
       filename: "admin-home.html",
       template: path.resolve(__dirname, "src/html/admin-home.html"),
       chunks: ["admin_home"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "mohon-kenderaan.html",
+      template: path.resolve(__dirname, "src/html/mohon-kenderaan.html"),
+      chunks: ["mohon_kenderaan"],
     }),
     /*new HtmlWebpackPlugin({
             filename: "admindashboard.html",
