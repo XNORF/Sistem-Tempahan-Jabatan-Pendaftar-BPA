@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-        <title>Stationaries | SPBPAJP</title>
+        <title>Maklumat Tempahan | SPBPAJP</title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />
 
@@ -25,9 +25,9 @@
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto" href="stationaries-history.html">Rekod Permohonan</a></li>
+                        <li><a class="nav-link scrollto active" href="stationaries-history.html">Rekod Permohonan</a></li>
                         <li class="dropdown">
-                            <a class="nav-link scrollto active" href="stationaries.html">Alat Tulis</a>
+                            <a class="nav-link scrollto " href="stationaries.html">Alat Tulis</a>
                             <!-- <ul>
                                 <li><a href="stationaries-history.html">Request History</a></li>
                             </ul> -->
@@ -57,50 +57,227 @@
                 <div class="container" data-aos="fade-up">
                     <div class="section-title pt-4">
                         <h2>Permohonan</h2>
+                        <p>Alat Tulis</p>
                     </div>
+                    <section class="py-2" id="alat-tulis">
+                        <table class="table table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Permohonan</th>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Diperlukan</th>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Diluluskan</th>
+                                    <!-- <th scope="col" class="textCenter">Tarikh Perlu Dipulangkan</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th  class="textCenter" id="requestDate">-</th>
+                                    <th  class="textCenter" id="neededDate">-</th>
+                                    <th  class="textCenter" id="approvedDate">-</th>
+                                    <!-- <th scope="row" class="textCenter" id="approvedDate">-</th> -->
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    <table class="table table-hover table-bordered" >
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col" class="textCenter">Tarikh Permohonan</th>
-                                <th scope="col" class="textCenter">Tarikh Diperlukan</th>
-                                <th scope="col" class="textCenter">Tarikh Diluluskan</th>
-                                <!-- <th scope="col" class="textCenter">Tarikh Perlu Dipulangkan</th> -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" class="textCenter" id="requestDate">-</th>
-                                <th scope="row" class="textCenter" id="neededDate">-</th>
-                                <th scope="row" class="textCenter" id="approvedDate">-</th>
-                                <!-- <th scope="row" class="textCenter" id="approvedDate">-</th> -->
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table class="table table-striped table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th class="textCenter table-blue" >No.</th>
+                                    <th class="textCenter table-blue" >Alat Tulis</th>
+                                    <th class="textCenter table-blue" >Kuantiti Permohonan</th>
+                                    <th class="textCenter table-blue" >Kuantiti Diluluskan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableContent" >
+                                <tr>
+                                    <th></th>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
 
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Alat Tulis</th>
-                                <th scope="col">Kuantiti Permohonan</th>
-                                <th scope="col">Kuantiti Diluluskan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableContent" >
-                            <tr>
-                                <th scope="row"></th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div id="reurn-content">
-                        <p>Anda diminta untuk membuat pulangan pinjaman pada Tarikh <span style="color: blue;">07/04/2024</span>.</p>
-                        <p>Ingin membuat pulangan pinjaman? </p>
-                        <button class="d-flex justify-content-end ms-auto rounded btn btn-primary">Pulangkan</button>
-                    </div>
+                    <section class="contact section-bg py-2" id="bilik-mesyuarat" style="display: none;">
+                        <table class="table table-bordered mb-4" >
+                            <thead>
+                                <tr>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Permohonan</th>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Diluluskan</th>
+                                    <th class="textCenter table-blue table-equal-3">Tarikh perlu Dipulangkan</th>
+                                    <!-- <th scope="col" class="textCenter">Tarikh Perlu Dipulangkan</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="textCenter" id="requestDate">-</th>
+                                    <th scope="row" class="textCenter" id="approvedDate">-</th>
+                                    <th scope="row" class="textCenter" id="returnDate">-</th>
+                                    <!-- <th scope="row" class="textCenter" id="approvedDate">-</th> -->
+                                </tr>
+                                <tr>
+                                    <th colspan="3" class="textCenter table-blue">Butiran daripada Admin</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="textCenter">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <button class="d-flex justify-content-end ms-auto rounded btn btn-primary">Pulangkan</button> -->
+                        
+                        <div class="php-email-form mt-5 mt-lg-0 ">
+                            <div class="form-group col-md-12">
+                                <label for="name"><b>Nama Program</b></label>
+                                <p>Hari Pengguna Sedunia</p>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name"><b>Tarikh Mula Program</b></label>
+                                    <p>15/3/2024</p>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name"><b>Tarikh Tamat Program</b></label>
+                                    <p>15/3/2024</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="name"><b>Pilih Sesi</b></label>
+                                    <p>Sesi Petang</p>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="name"><b>Cadangan Layout (Sekiranya ada)</b></label>
+                                    <br><a href="">DokumenSokongan.pdf</a>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="showSection"><b>Tempahan Jamuan</b></label>
+                                    <p id="YaJamuan">Ya</p>
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                <div id="section2" class="mt-4"  > <!--displaynone -->
+                                <h3>Tempahan Jamuan</h3>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="name"><b>Bilangan Jemputan (Sila nyatakan jika terdapat jemputan luar.)</b></label>
+                                        <p>40</p>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="name"><b>Jenis Jamuan</b></label>
+                                        <p>Minum Pagi + Makan Tengah hari + Minum Petang (RM18 - RM20)</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="name"><b>Cadangan Menu (Sekiranya ada)</b></label>
+                                    <p>-</p>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="name"><b>Katerer Pilihan</b></label>
+                                        <p>DOUBLE A&Z (ALONG CATERER)</p>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="name"><b>Cadangan Katerer Lain</b></label>
+                                        <p>DOUBLE A&Z (ALONG CATERER)</p>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="name"><b>Dokumen Sokongan (Surat Arahan/ Surat Panggilan Mesyuarat atau lain-lain)</b></label>
+                                    <br><a href="">DokumenSokongan.pdf</a>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="name"><b>Keperluan lain-lain</b></label>
+                                <p>-</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="contact section-bg py-2" id="kenderaan" style="display: none;">
+                        <table class="table table-bordered mb-4" >
+                            <thead>
+                                <tr>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Permohonan</th>
+                                    <th  class="textCenter table-blue table-equal-3">Tarikh Diluluskan</th>
+                                    <th class="textCenter table-blue table-equal-3">Tarikh perlu Dipulangkan</th>
+                                    <!-- <th scope="col" class="textCenter">Tarikh Perlu Dipulangkan</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="textCenter" id="requestDate">-</th>
+                                    <th scope="row" class="textCenter" id="approvedDate">-</th>
+                                    <th scope="row" class="textCenter" id="returnDate">-</th>
+                                    <!-- <th scope="row" class="textCenter" id="approvedDate">-</th> -->
+                                </tr>
+                                <tr>
+                                    <th colspan="3" class="textCenter table-blue">Butiran daripada Admin</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="textCenter">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <button class="d-flex justify-content-end ms-auto rounded btn btn-primary">Pulangkan</button> -->
+                        
+                        <div class="php-email-form mt-5 mt-lg-0 ">
+                            <div class="form-group col-md-12">
+                                <label for="name"><b>Nama Program</b></label>
+                                <p>Hari Pengguna Sedunia</p>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="name"><b>Tempat Program/Destinasi yang dituju</b></label>
+                                <p>Palm Mall</p>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="name"><b>Tarikh Mula Program</b></label>
+                                    <p>15/3/2024</p>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="name"><b>Bilangan Hari</b></label>
+                                    <p>2</p>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="name"><b>Tarikh Tamat Program</b></label>
+                                    <p>16/3/2024</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="name"><b>Bilangan Penumpang ( Sila nyatakan jika terdapat penumpang luar.)</b></label>
+                                <p>40</p>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="name"><b>Dokumen Sokongan (Surat Arahan / Senarai Penumpang bagi tempahan UTMFleet)</b></label>
+                                <br><a href="">DokumenSokongan.pdf</a>
+                            </div>
+                            <h3>Butiran Pemandu</h3>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name"><b>Nama Pemandu</b></label>
+                                    <p>Ali bin Abu</p>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name"><b>Jawatan Pemandu</b></label>
+                                    <p>Student</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name"><b>Perlukan Kad Touch N Go</b></label>
+                                    <p>Tidak</p>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name"><b>Perlukan Kad Inden Petrol</b></label>
+                                    <p>Tidak</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    
                 </div>
             </section>
             <!-- End #main -->
