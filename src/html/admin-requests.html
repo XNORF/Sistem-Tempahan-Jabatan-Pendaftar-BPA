@@ -11,7 +11,6 @@
         <!-- Favicons -->
         <link href="../img/favicon.png" rel="icon" />
         <link href="../img/apple-touch-icon.png" rel="apple-touch-icon" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
@@ -22,19 +21,11 @@
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center">
                 <img class="logo me-auto" src="/src/img/Logo_BPA_Putih.png" alt="" width="20%" />
-                <!-- <h1 class="logo me-auto">
-          <a href="index.html">SPBPAJP</a>
-        </h1> -->
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo me-auto"><img src="../img/logo.png" alt="" class="img-fluid"></a>-->
-
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto" href="stationaries-history.html">Rekod Permohonan</a></li>
-                        <li class="dropdown">
-                            <a class="nav-link scrollto active" href="stationaries.html">Alat Tulis</a>
-                        </li>
+                        <li><a class="nav-link scrollto active" href="stationaries-history.html">Rekod Permohonan</a></li>
+                        <li><a class="nav-link scrollto " href="stationaries.html">Alat Tulis</a></li>
                         <li>
                             <a class="nav-link scrollto" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
                         </li>
@@ -44,6 +35,7 @@
                         <li class="dropdown">
                             <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
+                                <!-- <li><a href="profile.html">Profil</a></li> -->
                                 <li><a href="index.html">Log Keluar</a></li>
                             </ul>
                         </li>
@@ -59,21 +51,27 @@
         <section id="team" class="team section-bg">
             <div class="container" data-aos="fade-up">
                 <div class="section-title pt-4">
-                    <h2>Alat Tulis</h2>
-                    <p>Sila pilih bilangan mengikut alat tulis yang diperlukan dan tekan butang mohon di kanan skrin</p>
+                    <h2>Rekod Permohonan</h2>
+                    <p>Permohonan-permohonan yang telah dibuat akan dipaparkan di halaman ini.</p>
                 </div>
 
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 py-3">
-                        <div data-mdb-input-init>
-                            <input type="search" id="SearchAlatTulis" class="form-control" placeholder="Search" aria-label="Search" />
+                <div class="">
+                    <div class="pe-0 dropdown-stathist">
+                        <button class="stathist-dropbtn mt-1">Kategori <i class="bi bi-chevron-down"></i></button>
+                        <div class="dropdown-content-stathist ms-4">
+                            <label class="dropdown-item"> <input type="checkbox" name="category" value="Alat Tulis" /> Alat Tulis </label>
+                            <label class="dropdown-item"> <input type="checkbox" name="category" value="Bilik Mesyuarat" /> Bilik Mesyuarat </label>
+                            <label class="dropdown-item"> <input type="checkbox" name="category" value="Kenderaan" /> Kenderaan </label>
                         </div>
                     </div>
-                  
-                    <div id="list">
-                        
+                    <div class="dropdown-stathist ps-0">
+                        <button class="stathist-dropbtn mt-1">Tarikh diperlukan <i class="bi bi-chevron-down"></i></button>
+                        <div class="dropdown-content-stathist ms-4">
+                            <input type="date" id="datePicker" class="form-control" />
+                        </div>
                     </div>
-                   
+                </div>
+                <div id="historyList">
                 </div>
 
                 <div class="pt-4">
@@ -98,14 +96,10 @@
             </div>
         </section>
         <!-- End Team Section -->
-
-        
-
         <!-- End #main -->
 
         <!-- ======= Footer ======= -->
         <footer id="footer">
-
             <div class="container footer-bottom clearfix">
                 <div class="copyright">
                     &copy; Copyright <strong><span>Sistem Inovasi JPA</span></strong
@@ -116,38 +110,7 @@
         <!-- End Footer -->
 
         <div class="" id="preloader"></div>
-        <button class="cartbtn" id="cartbtn">Troli</button>
-        <div class="cart-box" id="cartbox">
-            <a href="#"> 1. Battery AA - 2 </a>
-        </div>
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-        
-        
-        <button class="Mohonbtn" id="Mohonbtn" type="submit">Mohon</button>
-        <!-- The Modal -->
-        <div id="myModal" class="modal-alat-tulis">
-
-            <!-- Modal content -->
-            <div class="modal-mohon ">
-            <span class="close tutup-alat-tulis" >&times;</span>
-            <h3>Sila letakkan tarikh diperlukan.</h3>
-            <label for="name">Tarikh Diperlukan</label>
-            <input
-            type="date"
-            class="form-control"
-            name="date"
-            id="date"
-            required
-            />
-            <div class="d-flex pt-3">
-                <button type="button" class="btn btn-primary ms-auto">Submit</button>
-            </div>
-            
-            </div>
-        
-        </div>
-    
-    
     </body>
 </html>

@@ -19,6 +19,8 @@ module.exports = {
         admin_home: path.resolve(__dirname, "src/js/admin-home.js"),
         mohon_kenderaan: path.resolve(__dirname, "src/js/mohon-kenderaan.js"),
         adminfunctions: path.resolve(__dirname, "src/js/adminfunctions.js"),
+        admin_request_detail: path.resolve(__dirname, "src/js/admin-request-detail.js"),
+        admin_requests: path.resolve(__dirname, "src/js/admin-requests.js"),
         //admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
     },
     output: {
@@ -137,6 +139,16 @@ module.exports = {
             filename: "adminfunctions.html",
             template: path.resolve(__dirname, "src/html/adminfunctions.html"),
             chunks: ["adminfunctions"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "admin-request-detail.html",
+            template: path.resolve(__dirname, "src/html/admin-request-detail.html"),
+            chunks: ["admin_request_detail"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "admin-requests.html",
+            template: path.resolve(__dirname, "src/html/admin-requests.html"),
+            chunks: ["admin_requests"],
         }),
         /*new HtmlWebpackPlugin({
             filename: "admindashboard.html",

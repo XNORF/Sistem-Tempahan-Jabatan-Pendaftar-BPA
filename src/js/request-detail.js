@@ -21,16 +21,16 @@ main.getDoc(main.doc(main.db, "request", requestID)).then((doc) => {
         $("#tableContent").append(
             `
             <tr>
-                <th scope="row">` +
+                <th class="textCenter" scope="row">` +
                 (index + 1) +
                 `</th>
                 <td>` +
                 item.name +
                 `</td>
-                <td>` +
+                <td class="textCenter">` +
                 item.quantity +
                 `</td>
-                <td>` +
+                <td class="textCenter">` +
                 item.approved +
                 `</td> 
             </tr>
