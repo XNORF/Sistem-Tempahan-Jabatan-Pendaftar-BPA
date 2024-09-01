@@ -42,30 +42,42 @@ loginForm.addEventListener("submit", (e) => {
     const type = loginForm.userType.value;
     const email = loginForm.email.value;
     const password = loginForm.password.value;
-    console.log(email + " " + password + " " + type);
 
-    main.signInWithEmailAndPassword(main.auth, email, password)
-        .then((cred) => {
-            alert("Sign in successful");
-            if (type == "admin") {
-                window.location.href = "/admin-home.html";
+    if (type == "Admin") {
+        main.onSnapshot(main.query(main.usersDB, main.where("email", "==", email), main.where("type", "==", type)), (snapshot) => {
+            if (snapshot.docs.length == 1) {
+                main.signInWithEmailAndPassword(main.auth, email, password)
+                    .then((cred) => {
+                        alert("Sign in successful");
+                        window.location.href = "/admin-home.html";
+                    })
+                    .catch((error) => {
+                        alert(error.code);
+                    });
             } else {
-                window.location.href = "/home.html";
+                alert("Tiada akses admin");
             }
-        })
-        .catch((error) => {
-            alert(error.code);
         });
+    } else {
+        main.signInWithEmailAndPassword(main.auth, email, password)
+            .then((cred) => {
+                alert("Sign in successful");
+                window.location.href = "/home.html";
+            })
+            .catch((error) => {
+                alert(error.code);
+            });
+    }
 });
 
 $("#tab-user").on("click", (e) => {
     $("#tab-user").addClass("active");
     $("#tab-admin").removeClass("active");
-    $("#userType").val("user");
+    $("#userType").val("User");
 });
 
 $("#tab-admin").on("click", (e) => {
     $("#tab-admin").addClass("active");
     $("#tab-user").removeClass("active");
-    $("#userType").val("admin");
+    $("#userType").val("Admin");
 });
