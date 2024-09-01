@@ -2,3 +2,24 @@
 import $ from "jquery";
 const main = require("./main.js");
 /////////////////////////////////////////////////////////////////
+//untuk butiran admin
+document.addEventListener("DOMContentLoaded", function() {
+    const textarea = document.getElementById("butiranTextarea");
+
+    // Check if textarea has a value, if not set a default placeholder
+    if (!textarea.value.trim()) {
+        textarea.value = "Admin boleh menulis sebarang informasi tambahan buat pengguna disini.";
+    }
+
+    textarea.addEventListener("focus", function() {
+        if (textarea.value === "Admin boleh menulis sebarang informasi tambahan buat pengguna disini.") {
+            textarea.value = "";
+        }
+    });
+
+    textarea.addEventListener("blur", function() {
+        if (!textarea.value.trim()) {
+            textarea.value = "Admin boleh menulis sebarang informasi tambahan buat pengguna disini.";
+        }
+    });
+});

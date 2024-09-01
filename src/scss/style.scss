@@ -708,4 +708,23 @@ $fontColor: rgb(250, 250, 250);
     width: 33.33% !important;
 }
 
+//admin-request-detail
+.quantity-table{
+    background-color: transparent;
+    border: none;
+    text-align: center; /* Ensures the text is centered */
+    width: 100%; /* Adjusts to fit the container */
+    padding: 5px 0; /* Optional: Adjusts padding for better alignment */
+}
+
+.quantity-table:focus{
+    outline: none;
+}
+
+.butiran-admin{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 5px 0;
+}
 ///////////////////////////////////////////////////////////////////////////
