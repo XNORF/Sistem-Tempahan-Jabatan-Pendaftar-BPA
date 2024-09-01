@@ -51,7 +51,7 @@
                         <div class="updateUser">
                             <h3>Update User</h3>
                             <form id="updateUserForm">
-                                <input type="hidden" name="id" id="id" /><br />
+                                <input type="hidden" name="id" id="id" />
                                 <label for="name">Nama:</label><br />
                                 <input type="text" name="name" id="name" required /><br />
                                 <label for="empID">Nombor Pekerja:</label><br />
@@ -60,6 +60,12 @@
                                 <input type="text" name="phone" id="phone" required /><br />
                                 <label for="email">Emel:</label><br />
                                 <input type="text" name="email" id="email" required /><br />
+                                <label for="type">Jenis Akses:</label><br />
+                                <select name="type" id="userType" required>
+                                    <option selected value="User">User</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                                <br />
                                 <button class="btn btn-primary">Update</button>
                             </form>
                         </div>
@@ -111,14 +117,16 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Alat Tulis</th>
                                         <th scope="col">Kuantiti stok</th>
+                                        <th scope="col">Unit</th>
                                         <th scope="col">Tindakan</th>
                                     </tr>
                                 </thead>
                                 <tbody id="stationaryList">
                                     <tr id="stationaryID">
                                         <th scope="row">1</th>
-                                        <td>Pensel</td>
-                                        <td>2</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                         <td><button class="btn btn-primary updateStationaryBtn" id="stationaryID">Kemas kini</button></td>
                                     </tr>
                                 </tbody>
@@ -132,20 +140,25 @@
                                 <form id="addStationaryForm">
                                     <label for="name">Nama Alat Tulis:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
-                                    <label for="empID">Kuantiti:</label><br />
+                                    <label for="unit">Unit:</label><br />
+                                    <input type="text" name="unit" id="unit" required placeholder="Contoh: Keping/Buah/Kotak/..." /><br />
+                                    <label for="quantity">Kuantiti:</label><br />
                                     <input type="number" name="quantity" id="quantity" required /><br />
-                                    <button class="btn btn-primary">Submit</button>
+                                    <button id="addStationaryBtn" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
                             <div class="update">
                                 <h4>Update / Delete Stationary</h4>
                                 <form id="updateStationaryForm">
+                                    <input type="hidden" name="id" id="id" />
                                     <label for="name">Nama Alat Tulis:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
-                                    <label for="empID">Kuantiti:</label><br />
+                                    <label for="unit">Unit:</label><br />
+                                    <input type="text" name="unit" id="unit" required placeholder="Contoh: Keping/Buah/Kotak/..." /><br />
+                                    <label for="quantity">Kuantiti:</label><br />
                                     <input type="number" name="quantity" id="quantity" required /><br />
                                     <button class="btn btn-primary">Update</button>
-                                    <button class="btn btn-danger">Delete</button>
+                                    <button id="deleteStationaryBtn" type="button" class="btn btn-danger">Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -181,27 +194,34 @@
                                     <label for="name">Nama Kenderaan:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
                                     <label for="status">Status:</label><br />
-                                    <select name="status" id="status" required>
+                                    <select name="status" id="vehicleStatus" required>
                                         <option selected value="Available">Available</option>
                                         <option value="Unavailable">Unavailable</option>
                                     </select>
                                     <br />
-                                    <button class="btn btn-primary">Submit</button>
+                                    <label for="img">Gambar:</label><br />
+                                    <input type="file" name="img" id="img" accept="image/png, image/jpeg" required /><br />
+                                    <button id="addVehicleBtn" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
                             <div class="update">
                                 <h4>Update / Delete Vehicle</h4>
                                 <form id="updateVehicleForm">
+                                    <input type="hidden" name="id" id="id" />
+                                    <input type="hidden" name="imgID" id="imgID" />
+                                    <input type="hidden" name="imgURL" id="imgURL" />
                                     <label for="name">Nama Kenderaan:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
                                     <label for="status">Status:</label><br />
-                                    <select name="status" id="status" required>
+                                    <select name="status" id="vehicleUpdateStatus" required>
                                         <option selected value="Available">Available</option>
                                         <option value="Unavailable">Unavailable</option>
                                     </select>
                                     <br />
+                                    <label for="img">Gambar:</label><br />
+                                    <input type="file" name="img" id="img" accept="image/png, image/jpeg" /><br />
                                     <button class="btn btn-primary">Update</button>
-                                    <button class="btn btn-danger">Delete</button>
+                                    <button id="deleteVehicleBtn" type="button" class="btn btn-danger">Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -239,28 +259,39 @@
                                 <form id="addRoomForm">
                                     <label for="name">Nama Bilik:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
+                                    <label for="location">Lokasi Bilik:</label><br />
+                                    <input type="text" name="location" id="location" required /><br />
                                     <label for="status">Status:</label><br />
-                                    <select name="status" id="status">
+                                    <select name="status" id="roomStatus">
                                         <option selected value="Available">Available</option>
                                         <option value="Unavailable">Unavailable</option>
                                     </select>
                                     <br />
-                                    <button class="btn btn-primary">Submit</button>
+                                    <label for="img">Gambar:</label><br />
+                                    <input type="file" name="img" id="img" accept="image/png, image/jpeg" required /><br />
+                                    <button id="addRoomBtn" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
                             <div class="update">
                                 <h4>Update / Delete Room</h4>
                                 <form id="updateRoomForm">
+                                    <input type="hidden" name="id" id="id" />
+                                    <input type="hidden" name="imgID" id="imgID" />
+                                    <input type="hidden" name="imgURL" id="imgURL" />
                                     <label for="name">Nama Bilik:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
+                                    <label for="location">Lokasi Bilik:</label><br />
+                                    <input type="text" name="location" id="location" required /><br />
                                     <label for="status">Status:</label><br />
-                                    <select name="status" id="status">
+                                    <select name="status" id="roomUpdateStatus">
                                         <option selected value="Available">Available</option>
                                         <option value="Unavailable">Unavailable</option>
                                     </select>
                                     <br />
+                                    <label for="img">Gambar:</label><br />
+                                    <input type="file" name="img" id="img" accept="image/png, image/jpeg" /><br />
                                     <button class="btn btn-primary">Update</button>
-                                    <button class="btn btn-danger">Delete</button>
+                                    <button id="deleteRoomBtn" type="button" class="btn btn-danger">Delete</button>
                                 </form>
                             </div>
                         </div>
