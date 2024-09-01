@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>Stationaries | SPBPAJP</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <!-- Favicons -->
+        <link href="../img/favicon.png" rel="icon" />
+        <link href="../img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top">
+            <div class="container d-flex align-items-center">
+                <img class="logo me-auto" src="/src/img/Logo_BPA_Putih.png" alt="" width="20%" />
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
+                        <li><a class="nav-link scrollto active" href="stationaries-history.html">Rekod Permohonan</a></li>
+                        <li><a class="nav-link scrollto " href="stationaries.html">Alat Tulis</a></li>
+                        <li>
+                            <a class="nav-link scrollto" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="vehicle.html">Kenderaan</a>
+                        </li>
+                        <li class="dropdown">
+                            <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <!-- <li><a href="profile.html">Profil</a></li> -->
+                                <li><a href="index.html">Log Keluar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- ======= Team Section ======= -->
+        <section id="team" class="team section-bg">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title pt-4">
+                    <h2>Rekod Permohonan</h2>
+                    <p>Permohonan-permohonan yang telah dibuat akan dipaparkan di halaman ini.</p>
+                </div>
+
+                <div class="">
+                    <div class="pe-0 dropdown-stathist">
+                        <button class="stathist-dropbtn mt-1">Kategori <i class="bi bi-chevron-down"></i></button>
+                        <div class="dropdown-content-stathist ms-4">
+                            <label class="dropdown-item"> <input type="checkbox" name="category" value="Alat Tulis" /> Alat Tulis </label>
+                            <label class="dropdown-item"> <input type="checkbox" name="category" value="Bilik Mesyuarat" /> Bilik Mesyuarat </label>
+                            <label class="dropdown-item"> <input type="checkbox" name="category" value="Kenderaan" /> Kenderaan </label>
+                        </div>
+                    </div>
+                    <div class="dropdown-stathist ps-0">
+                        <button class="stathist-dropbtn mt-1">Tarikh diperlukan <i class="bi bi-chevron-down"></i></button>
+                        <div class="dropdown-content-stathist ms-4">
+                            <input type="date" id="datePicker" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div id="historyList">
+                </div>
+
+                <div class="pt-4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <button class="page-link pageNav" aria-label="Previous" value="previous" style="color: #37517e !important">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link" style="color: #37517e !important"><span id="currentPage">1</span></button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link pageNav" aria-label="Next" value="next" style="color: #37517e !important">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <!-- End Team Section -->
+        <!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="container footer-bottom clearfix">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Sistem Inovasi JPA</span></strong
+                    >. All Rights Reserved
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+        <div class="" id="preloader"></div>
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </body>
+</html>
