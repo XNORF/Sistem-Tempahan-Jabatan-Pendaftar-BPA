@@ -73,43 +73,43 @@ search.addEventListener("input", (e) => {
 });
 
 //SUBMIT REQUEST - ADD INTO FIRESTORE & SEND EMAIL
-submit.addEventListener("click", (e) => {
-    e.target.disabled = true;
-    var neededDate = prompt("Tarikh diperlukan", "31/12/2024");
+// submit.addEventListener("click", (e) => {
+//     e.target.disabled = true;
+//     var neededDate = prompt("Tarikh diperlukan", "31/12/2024");
 
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1;
-    let dd = today.getDate();
+//     const today = new Date();
+//     const yyyy = today.getFullYear();
+//     let mm = today.getMonth() + 1;
+//     let dd = today.getDate();
 
-    if (dd < 10) dd = "0" + dd;
-    if (mm < 10) mm = "0" + mm;
+//     if (dd < 10) dd = "0" + dd;
+//     if (mm < 10) mm = "0" + mm;
 
-    const requestDate = dd + "/" + mm + "/" + yyyy;
+//     const requestDate = dd + "/" + mm + "/" + yyyy;
 
-    //CHECK IF EMPTY, EMPTY JSON IS 2
-    if (JSON.stringify(cart).length === 2) {
-        console.log("empty");
-    } else {
-        main.addDoc(main.requestDB, {
-            type: "stationary",
-            status: "pending",
-            request: { cart, neededDate, requestDate, approvedDate: "-" },
-            userID: currentUser.uid,
-        })
-            .then((success) => {
-                console.log("success");
-                const subject = "Permohonan Alat Tulis [" + success.id + "]";
-                const body = ``;
-                //main.sendEmail(currentUser.email, subject, body);
-                window.location.href = "request-detail.html?id=" + success.id;
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-    e.target.disabled = false;
-});
+//     //CHECK IF EMPTY, EMPTY JSON IS 2
+//     if (JSON.stringify(cart).length === 2) {
+//         console.log("empty");
+//     } else {
+//         main.addDoc(main.requestDB, {
+//             type: "stationary",
+//             status: "pending",
+//             request: { cart, neededDate, requestDate, approvedDate: "-" },
+//             userID: currentUser.uid,
+//         })
+//             .then((success) => {
+//                 console.log("success");
+//                 const subject = "Permohonan Alat Tulis [" + success.id + "]";
+//                 const body = ``;
+//                 //main.sendEmail(currentUser.email, subject, body);
+//                 window.location.href = "request-detail.html?id=" + success.id;
+//             })
+//             .catch((error) => {
+//                 console.log(error);
+//             });
+//     }
+//     e.target.disabled = false;
+// });
 
 //LIST STATIONARY BASED ON QUERY INTO HTML
 function getStationary(q) {
@@ -261,3 +261,31 @@ window.onclick = function (event) {
         cartBox.style.display = "none";
     }
 };
+
+//untuk modal
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("Mohonbtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
