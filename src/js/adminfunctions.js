@@ -364,6 +364,9 @@ main.onSnapshot(main.query(main.vehicleDB, main.orderBy("status", "asc")), (snap
                 data.name +
                 `</td>
                 <td>` +
+                data.capacity +
+                `</td>
+                <td>` +
                 data.status +
                 `</td>
                 <td><button class="btn btn-primary updateVehicleBtn" id="` +
@@ -381,6 +384,7 @@ addVehicleForm.addEventListener("submit", (e) => {
     $("#addVehicleBtn").prop("disabled", true);
 
     const name = addVehicleForm.name.value;
+    const capacity = addVehicleForm.capacity.value;
     const status = document.querySelector("#vehicleStatus").value;
     const image = addVehicleForm.img.files[0];
     const imgID = uuidv4();
@@ -388,7 +392,7 @@ addVehicleForm.addEventListener("submit", (e) => {
     if (imgSize(image)) {
         main.uploadBytes(imgRef, image).then((img) => {
             main.getDownloadURL(img.ref).then((imgURL) => {
-                const data = { name, status, img: imgURL, imgID };
+                const data = { name, status, capacity, img: imgURL, imgID };
                 main.addDoc(main.vehicleDB, data)
                     .then((success) => {
                         // Clear the form and hide the new admin form
@@ -416,6 +420,7 @@ $("#vehicleList").on("click", ".updateVehicleBtn", function () {
         console.log(data);
         updateVehicleForm.id.value = doc.id;
         updateVehicleForm.name.value = data.name;
+        updateVehicleForm.capacity.value = data.capacity;
         document.querySelector("#vehicleUpdateStatus").value = data.status;
         updateVehicleForm.imgID.value = data.imgID;
         updateVehicleForm.imgURL.value = data.img;
@@ -427,13 +432,14 @@ updateVehicleForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const id = updateVehicleForm.id.value;
     const name = updateVehicleForm.name.value;
+    const capacity = updateVehicleForm.capacity.value;
     const status = document.querySelector("#vehicleUpdateStatus").value;
     const image = updateVehicleForm.img.files[0];
     const imgID = updateVehicleForm.imgID.value;
 
     if (updateVehicleForm.img.files.length === 0) {
         const currentImgURL = updateVehicleForm.imgURL.value;
-        const data = { name, status, img: currentImgURL, imgID };
+        const data = { name, status, capacity, img: currentImgURL, imgID };
         main.updateDoc(main.doc(main.db, "vehicle", id), data)
             .then((success) => {
                 // Clear the form and hide the new admin form
@@ -506,6 +512,9 @@ main.onSnapshot(main.query(main.roomDB, main.orderBy("status", "asc")), (snapsho
                 data.location +
                 `</td>
                 <td>` +
+                data.capacity +
+                `</td>
+                <td>` +
                 data.status +
                 `</td>
                 <td><button class="btn btn-primary updateRoomBtn" id="` +
@@ -525,6 +534,7 @@ addRoomForm.addEventListener("submit", (e) => {
 
     const name = addRoomForm.name.value;
     const location = addRoomForm.location.value;
+    const capacity = addRoomForm.capacity.value;
     const status = document.querySelector("#roomStatus").value;
     const image = addRoomForm.img.files[0];
     const imgID = uuidv4();
@@ -532,7 +542,7 @@ addRoomForm.addEventListener("submit", (e) => {
     if (imgSize(image)) {
         main.uploadBytes(imgRef, image).then((img) => {
             main.getDownloadURL(img.ref).then((imgURL) => {
-                const data = { name, status, location, img: imgURL, imgID };
+                const data = { name, status, location, capacity, img: imgURL, imgID };
                 main.addDoc(main.roomDB, data)
                     .then((success) => {
                         // Clear the form and hide the new admin form
@@ -561,6 +571,7 @@ $("#roomList").on("click", ".updateRoomBtn", function () {
         updateRoomForm.id.value = doc.id;
         updateRoomForm.name.value = data.name;
         updateRoomForm.location.value = data.location;
+        updateRoomForm.capacity.value = data.capacity;
         document.querySelector("#roomUpdateStatus").value = data.status;
         updateRoomForm.imgID.value = data.imgID;
         updateRoomForm.imgURL.value = data.img;
@@ -573,13 +584,15 @@ updateRoomForm.addEventListener("submit", (e) => {
     const id = updateRoomForm.id.value;
     const name = updateRoomForm.name.value;
     const location = updateRoomForm.location.value;
+    const capacity = updateRoomForm.capacity.value;
+
     const status = document.querySelector("#roomUpdateStatus").value;
     const image = updateRoomForm.img.files[0];
     const imgID = updateRoomForm.imgID.value;
 
     if (updateRoomForm.img.files.length === 0) {
         const currentImgURL = updateRoomForm.imgURL.value;
-        const data = { name, status, img: currentImgURL, imgID };
+        const data = { name, status, capacity, location, img: currentImgURL, imgID };
         main.updateDoc(main.doc(main.db, "room", id), data)
             .then((success) => {
                 // Clear the form and hide the new admin form

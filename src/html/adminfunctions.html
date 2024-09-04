@@ -171,6 +171,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Kenderaan</th>
+                                        <th scope="col">Kapasiti</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Tindakan</th>
                                     </tr>
@@ -178,8 +179,9 @@
                                 <tbody id="vehicleList">
                                     <tr id="vehicleID">
                                         <th scope="row">1</th>
-                                        <td>Toyota</td>
-                                        <td>Available</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                         <td><button class="btn btn-primary updateVehicleBtn" id="vehicleID">Kemas kini</button></td>
                                     </tr>
                                 </tbody>
@@ -193,6 +195,8 @@
                                 <form id="addVehicleForm">
                                     <label for="name">Nama Kenderaan:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
+                                    <label for="capacity">Kapasiti:</label><br />
+                                    <input type="number" name="capacity" id="capacity" required /><br />
                                     <label for="status">Status:</label><br />
                                     <select name="status" id="vehicleStatus" required>
                                         <option selected value="Available">Available</option>
@@ -212,6 +216,8 @@
                                     <input type="hidden" name="imgURL" id="imgURL" />
                                     <label for="name">Nama Kenderaan:</label><br />
                                     <input type="text" name="name" id="name" required /><br />
+                                    <label for="capacity">Kapasiti:</label><br />
+                                    <input type="number" name="capacity" id="capacity" required /><br />
                                     <label for="status">Status:</label><br />
                                     <select name="status" id="vehicleUpdateStatus" required>
                                         <option selected value="Available">Available</option>
@@ -236,6 +242,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Bilik</th>
                                         <th scope="col">Lokasi</th>
+                                        <th scope="col">Kapasiti</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Tindakan</th>
                                     </tr>
@@ -243,9 +250,10 @@
                                 <tbody id="roomList">
                                     <tr id="roomID">
                                         <th scope="row">1</th>
-                                        <td>Bilik Mesyuarat abcde</td>
-                                        <td>Aras 2, Bangunan F54</td>
-                                        <td>Available</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                         <td><button class="btn btn-primary updateRoomBtn" id="roomID">Kemas kini</button></td>
                                     </tr>
                                 </tbody>
@@ -261,6 +269,8 @@
                                     <input type="text" name="name" id="name" required /><br />
                                     <label for="location">Lokasi Bilik:</label><br />
                                     <input type="text" name="location" id="location" required /><br />
+                                    <label for="capacity">Kapasiti:</label><br />
+                                    <input type="number" name="capacity" id="capacity" required /><br />
                                     <label for="status">Status:</label><br />
                                     <select name="status" id="roomStatus">
                                         <option selected value="Available">Available</option>
@@ -282,6 +292,8 @@
                                     <input type="text" name="name" id="name" required /><br />
                                     <label for="location">Lokasi Bilik:</label><br />
                                     <input type="text" name="location" id="location" required /><br />
+                                    <label for="capacity">Kapasiti:</label><br />
+                                    <input type="number" name="capacity" id="capacity" required /><br />
                                     <label for="status">Status:</label><br />
                                     <select name="status" id="roomUpdateStatus">
                                         <option selected value="Available">Available</option>
