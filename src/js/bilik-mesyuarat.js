@@ -24,11 +24,14 @@ main.onSnapshot(main.query(main.roomDB), (snapshot) => {
                     <h4>` +
             data.name +
             `</h4>
-                    <p>` +
+                    <p class="mb-0 pb-0">` +
             data.location +
             `</p>
+            <p class="mb-0 pb-0">Kapasiti: ` +
+            data.capacity +
+            ` orang</p>
                 </div>
-                <div class="text-center">
+                <div class="text-center pt-3">
                     <a href="mohon-bilik.html?id=` +
             doc.id +
             `"><button type="submit">Mohon</button></a>
