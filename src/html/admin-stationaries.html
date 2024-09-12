@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-        <title>Stationaries | SPBPAJP</title>
+        <title>Alat Tulis | AMD Facility Hub</title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />
 
@@ -25,19 +25,20 @@
     <body>
       <div class="wrapper">
         <!-- ======= Header ======= -->
-        <header id="header" class="fixed-top">
+        <header id="header" class="fixed-top ">
             <div class="container d-flex align-items-center">
-                <img class="logo me-auto" src="/src/img/Logo_BPA_Putih.png" alt="" width="20%" />
+                <img class="logo me-auto" src="/src/img/AMD2.png" alt="" width="10%" />
                 <nav id="navbar" class="navbar">
                     <ul>
-                        <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto active" href="stationaries-history.html">Rekod Permohonan</a></li>
-                        <li><a class="nav-link scrollto " href="stationaries.html">Alat Tulis</a></li>
+                        <li><a class="nav-link scrollto" href="admin-home.html">Paparan</a></li>
+                        <li><a class="nav-link scrollto" href="admin-user-management.html">Senarai Pengguna</a></li>
+                        <li><a class="nav-link scrollto " href="admin-requests.html">Permohonan</a></li>
+                        <li><a class="nav-link scrollto active" href="admin-stationaries.html">Alat Tulis</a></li>
                         <li>
-                            <a class="nav-link scrollto" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
+                            <a class="nav-link scrollto" href="admin-bilik-mesyuarat.html">Bilik Mesyuarat</a>
                         </li>
                         <li>
-                            <a class="nav-link scrollto" href="vehicle.html">Kenderaan</a>
+                            <a class="nav-link scrollto" href="admin-vehicle.html">Kenderaan</a>
                         </li>
                         <li class="dropdown">
                             <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
@@ -55,25 +56,25 @@
         <!-- End Header -->
         <div class="content">
         <!-- ======= Team Section ======= -->
-        <div class="team section-bg">
-          <div class="container" data-aos="fade-up">
+        <div class="team section-bg ">
+          <div class="container pt-3" data-aos="fade-up">
             <div class="section-title pt-4">
-              <h2>Senarai Pengguna</h2>
-              <p>Admin boleh melihat senarai maklumat pengguna yang telah berdaftar dan boleh menambah serta kemaskini maklumat pengguna.</p>
+              <h2>Senarai Alat Tulis</h2>
+              <p>Admin boleh menambah, mengubah suai, dan membuang senarai alat tulis di halaman ini.</p>
             </div>
           </div>
         </div>
 
         <div class="text-center ">
-          <button class="btn btn-primary" id="TambahPengguna" type="submit" style="width: auto;">Tambah Pengguna</button>
+          <button class="btn btn-primary" id="TambahAlatTulis" type="submit" style="width: auto;">Tambah Alat Tulis</button>
           <!-- The Modal -->
-          <div id="ModalTambah" class="modal-alat-tulis pt-0" style="overflow: hidden;"> 
+          <div id="ModalTambahAlatTulis" class="modal-alat-tulis pt-0" style="overflow: hidden;"> 
 
               <!-- Modal content -->
               <div class="modal-mohon kotak-tambah">
                 <span class="close close-tambah tutup-alat-tulis" >&times;</span>
-                <h3>Daftar Pengguna</h3>
-                <label for="name" class="d-flex text-start">Nama:</label>
+                <h3>Menambah Alat Tulis</h3>
+                <label for="name" class="d-flex text-start">Nama Alat Tulis:</label>
                 <input
                 type="text"
                 class="form-control mb-3"
@@ -81,34 +82,26 @@
                 id="namaPengguna"
                 required
                 />
-                <label for="name" class="d-flex text-start">Nombor Pekerja:</label>
+                <label for="name" class="d-flex text-start">Unit:</label>
                 <input
                 type="text"
                 class="form-control mb-3"
-                name="NomborPengguna"
-                id="nomborPengguna"
+                name="Unit"
+                id="Unit"
+                placeholder="Contoh: Keping/Buah/Kotak..."
                 required
                 />
-                <label for="name" class="d-flex text-start">Nombor Telefon:</label>
+                <label for="name" class="d-flex text-start">Kuantiti:</label>
                 <input
-                type="text"
+                type="number"
                 class="form-control mb-3"
-                name="TelefonPengguna"
-                id="telefonPengguna"
-                required
-                />
-                <label for="name" class="d-flex text-start">Emel:</label>
-                <input
-                type="email"
-                class="form-control mb-3"
-                name="EmelPengguna"
-                id="emelPengguna"
+                name="Kuantiti"
+                id="Kuantiti"
                 required
                 />
                 <div class="d-flex pt-3">
-                    <button type="button" class="btn btn-primary ms-auto">Submit</button>
+                    <button type="button" class="btn btn-primary ms-auto">Tambah</button>
                 </div>
-              
               </div>
           
           </div>
@@ -119,44 +112,40 @@
             <table id="example" class="table table-primary table-striped " style="width:100%">
               <thead>
                   <tr>
-                      <th>#</th>
-                      <th>Nombor Pekerja</th>
-                      <th>Nama</th>
-                      <th>Emel</th>
-                      <th>Nombor Telefon</th>
-                      <th>Jenis Akses</th>
-                      <th>Kemas kini</th>
+                      <th class="text-center">#</th>
+                      <th class="text-center">Alat Tulis</th>
+                      <th class="text-center">Kuantiti Stok</th>
+                      <th class="text-center">Unit</th>
+                      <th class="text-center">Tindakan</th>
                   </tr>
               </thead>
               <tbody>
                 <tr>
-                    <td class="textCenter">1</td>
-                    <td>0000</td>
-                    <td>Norfirdaus Norfirdaus Norfirdaus</td>
-                    <td>daus@gmail.com</td>
-                    <td>0123456789</td>
-                    <td class="textCenter">Admin</td>
-                    <td class="textCenter">
-                      <button class="btn btn-primary" id="KemasKiniPengguna" type="submit" style="width: auto;">Kemas Kini</button>
+                    <td class="text-center">1</td>
+                    <td>Pen Merah Dan Pen Biru</td>
+                    <td class="text-center">1000010</td>
+                    <td class="text-center">Batang</td>
+                    <td class="text-center">
+                      <button class="btn btn-primary" id="KemasKiniAlatTulis" type="submit" style="width: auto;">Kemas Kini</button>
                     </td>
                 </tr>
                 <tr>
-                  <td class="textCenter">1</td>
-                  <td class="textCenter">0000</td>
-                  <td>Norfirdaus Norfirdaus Norfirdaus</td>
-                  <td>daus@gmail.com</td>
-                  <td class="textCenter">0123456789</td>
-                  <td class="textCenter">Pengguna</td>
-                  <td class="textCenter"><a href="request-detail.html" class="redirect-btn">Kemas kini</a></td>
+                  <td class="text-center">1</td>
+                  <td>Pen Merah Dan Pen Biru</td>
+                  <td class="text-center">1000010</td>
+                  <td class="text-center">Batang</td>
+                  <td class="text-center">
+                    <button class="btn btn-primary" id="KemasKiniAlatTulis" type="submit" style="width: auto;">Kemas Kini</button>
+                  </td>
                 </tr>
                 <tr>
-                  <td class="textCenter">1</td>
-                  <td class="textCenter">0000</td>
-                  <td>Norfirdaus Norfirdaus Norfirdaus</td>
-                  <td>daus@gmail.com</td>
-                  <td class="textCenter">0123456789</td>
-                  <td class="textCenter">Admin</td>
-                  <td class="textCenter"><a href="request-detail.html" class="redirect-btn">Kemas kini</a></td>
+                  <td class="text-center">1</td>
+                  <td>Pen Merah Dan Pen Biru</td>
+                  <td class="text-center">1000010</td>
+                  <td class="text-center">Batang</td>
+                  <td class="text-center">
+                    <button class="btn btn-primary" id="KemasKiniAlatTulis" type="submit" style="width: auto;">Kemas Kini</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -165,53 +154,44 @@
         <!-- End Team Section -->
 
         <!-- The Modal -->
-        <div id="ModalKemasKini" class="modal-alat-tulis pt-0" style="overflow: hidden;"> 
+        <div id="ModalKemasKiniAlatTulis" class="modal-alat-tulis pt-0" style="overflow: hidden;"> 
 
           <!-- Modal content -->
           <div class="modal-mohon kotak-tambah">
             <span class="close close-update tutup-alat-tulis" >&times;</span>
-            <h3>Kemas kini Pengguna</h3>
-            <label for="name" class="d-flex text-start">Nama:</label>
+            <h3>Kemas kini / Membuang Alat Tulis</h3>
+            <label for="name" class="d-flex text-start">Nama Alat Tulis:</label>
             <input
             type="text"
             class="form-control mb-3"
-            name="NamaPengguna"
-            id="namaPengguna"
+            name="NamaAlatTulis"
+            id="NamaAlatTulis"
             required
             />
-            <label for="name" class="d-flex text-start">Nombor Pekerja:</label>
+            <label for="name" class="d-flex text-start">Unit:</label>
             <input
             type="text"
             class="form-control mb-3"
-            name="NomborPengguna"
-            id="nomborPengguna"
+            name="Unit"
+            placeholder="Contoh: Keping/Buah/Kotak..."
+            id="Unit"
             required
             />
-            <label for="name" class="d-flex text-start">Nombor Telefon:</label>
+            <label for="name" class="d-flex text-start">Kuantiti:</label>
             <input
-            type="text"
+            type="number"
             class="form-control mb-3"
-            name="TelefonPengguna"
-            id="telefonPengguna"
+            name="kuantiti"
+            id="kuantiti"
             required
             />
-            <label for="name" class="d-flex text-start">Emel:</label>
-            <input
-            type="email"
-            class="form-control mb-3"
-            name="EmelPengguna"
-            id="emelPengguna"
-            required
-            />
-            <label for="showSection" class="d-flex text-start">Jenis Akses:</label>
-              <select class="form-select mb-3" aria-label="Default select example" id="jenisAkses" name="jenisAkses" onchange="toggleSection2(this.value)" required>
-                <option selected disabled value="" style="display: none;"></option>
-                <option value="1">Pengguna</option>
-                <option value="2">Admin</option>
-              </select>
-            <div class="d-flex pt-3">
-                <button type="button" class="btn btn-primary ms-auto">Update</button>
+            <div class="pt-3 d-flex">
+              <div class="ms-auto">
+                <button type="button" class="btn btn-primary">Kemas Kini</button>
+                <button type="button" class="btn btn-danger">Membuang</button>
+              </div>
             </div>
+            
           </div>
         </div>
         </div>
