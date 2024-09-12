@@ -22,6 +22,9 @@ module.exports = {
         admin_request_detail: path.resolve(__dirname, "src/js/admin-request-detail.js"),
         admin_requests: path.resolve(__dirname, "src/js/admin-requests.js"),
         admin_user_management: path.resolve(__dirname, "src/js/admin-user-management.js"),
+        admin_bilik_mesyuarat: path.resolve(__dirname, "src/js/admin-bilik-mesyuarat.js"),
+        admin_vehicle: path.resolve(__dirname, "src/js/admin-vehicle.js"),
+        admin_stationaries: path.resolve(__dirname, "src/js/admin-stationaries.js"),
         //admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
     },
     output: {
@@ -155,6 +158,21 @@ module.exports = {
             filename: "admin-user-management.html",
             template: path.resolve(__dirname, "src/html/admin-user-management.html"),
             chunks: ["admin_user_management"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "admin-bilik-mesyuarat.html",
+            template: path.resolve(__dirname, "src/html/admin-bilik-mesyuarat.html"),
+            chunks: ["admin_bilik_mesyuarat"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "admin-vehicle.html",
+            template: path.resolve(__dirname, "src/html/admin-vehicle.html"),
+            chunks: ["admin_vehicle"],
+        }),
+        new HtmlWebpackPlugin({
+            filename: "admin-stationaries.html",
+            template: path.resolve(__dirname, "src/html/admin-stationaries.html"),
+            chunks: ["admin_stationaries"],
         }),
         /*new HtmlWebpackPlugin({
             filename: "admindashboard.html",
