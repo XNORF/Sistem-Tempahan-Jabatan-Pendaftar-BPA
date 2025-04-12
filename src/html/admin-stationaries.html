@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        <title>Alat Tulis | AMD Facility Hub</title>
+        <meta content="" name="description" />
+        <meta content="" name="keywords" />
+
+        <!-- Favicons -->
+        <link href="../img/favicon.png" rel="icon" />
+        <link href="../img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.bootstrap5.css">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.1.5/js/dataTables.bootstrap5.js"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+    </head>
+
+    <body>
+      <div class="wrapper">
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top ">
+            <div class="container d-flex align-items-center">
+                <img class="logo me-auto" src="/src/img/AMD2.png" alt="" width="10%" />
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto" href="admin-home.html">Paparan</a></li>
+                        <li><a class="nav-link scrollto" href="admin-user-management.html">Senarai Pengguna</a></li>
+                        <li><a class="nav-link scrollto " href="admin-requests.html">Permohonan</a></li>
+                        <li><a class="nav-link scrollto active" href="admin-stationaries.html">Alat Tulis</a></li>
+                        <li>
+                            <a class="nav-link scrollto" href="admin-bilik-mesyuarat.html">Bilik Mesyuarat</a>
+                        </li>
+                        <li>
+                            <a class="nav-link scrollto" href="admin-vehicle.html">Kenderaan</a>
+                        </li>
+                        <li class="dropdown">
+                            <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <!-- <li><a href="profile.html">Profil</a></li> -->
+                                <li><a href="index.html">Log Keluar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- .navbar -->
+            </div>
+        </header>
+        <!-- End Header -->
+        <div class="content">
+        <!-- ======= Team Section ======= -->
+        <div class="team section-bg ">
+          <div class="container pt-3" data-aos="fade-up">
+            <div class="section-title pt-4">
+              <h2>Senarai Alat Tulis</h2>
+              <p>Admin boleh menambah, mengubah suai, dan membuang senarai alat tulis di halaman ini.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center ">
+          <button class="btn btn-primary" id="TambahAlatTulis" type="submit" style="width: auto;">Tambah Alat Tulis</button>
+          <!-- The Modal -->
+          <div id="ModalTambahAlatTulis" class="modal-alat-tulis pt-0" style="overflow: hidden;"> 
+
+              <!-- Modal content -->
+              <div class="modal-mohon kotak-tambah">
+                <span class="close close-tambah tutup-alat-tulis" >&times;</span>
+                <h3>Menambah Alat Tulis</h3>
+                <label for="name" class="d-flex text-start">Nama Alat Tulis:</label>
+                <input
+                type="text"
+                class="form-control mb-3"
+                name="NamaPengguna"
+                id="namaPengguna"
+                required
+                />
+                <label for="name" class="d-flex text-start">Unit:</label>
+                <input
+                type="text"
+                class="form-control mb-3"
+                name="Unit"
+                id="Unit"
+                placeholder="Contoh: Keping/Buah/Kotak..."
+                required
+                />
+                <label for="name" class="d-flex text-start">Kuantiti:</label>
+                <input
+                type="number"
+                class="form-control mb-3"
+                name="Kuantiti"
+                id="Kuantiti"
+                required
+                />
+                <div class="d-flex pt-3">
+                    <button type="button" class="btn btn-primary ms-auto">Tambah</button>
+                </div>
+              </div>
+          
+          </div>
+        </div>
+
+        <section class="team section-bg pt-0">
+          <div class="container" id="historyList">
+            <table id="example" class="table table-primary table-striped " style="width:100%">
+              <thead>
+                  <tr>
+                      <th class="text-center">#</th>
+                      <th class="text-center">Alat Tulis</th>
+                      <th class="text-center">Kuantiti Stok</th>
+                      <th class="text-center">Unit</th>
+                      <th class="text-center">Tindakan</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td class="text-center">1</td>
+                    <td>Pen Merah Dan Pen Biru</td>
+                    <td class="text-center">1000010</td>
+                    <td class="text-center">Batang</td>
+                    <td class="text-center">
+                      <button class="btn btn-primary" id="KemasKiniAlatTulis" type="submit" style="width: auto;">Kemas Kini</button>
+                    </td>
+                </tr>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td>Pen Merah Dan Pen Biru</td>
+                  <td class="text-center">1000010</td>
+                  <td class="text-center">Batang</td>
+                  <td class="text-center">
+                    <button class="btn btn-primary" id="KemasKiniAlatTulis" type="submit" style="width: auto;">Kemas Kini</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td>Pen Merah Dan Pen Biru</td>
+                  <td class="text-center">1000010</td>
+                  <td class="text-center">Batang</td>
+                  <td class="text-center">
+                    <button class="btn btn-primary" id="KemasKiniAlatTulis" type="submit" style="width: auto;">Kemas Kini</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <!-- End Team Section -->
+
+        <!-- The Modal -->
+        <div id="ModalKemasKiniAlatTulis" class="modal-alat-tulis pt-0" style="overflow: hidden;"> 
+
+          <!-- Modal content -->
+          <div class="modal-mohon kotak-tambah">
+            <span class="close close-update tutup-alat-tulis" >&times;</span>
+            <h3>Kemas kini / Membuang Alat Tulis</h3>
+            <label for="name" class="d-flex text-start">Nama Alat Tulis:</label>
+            <input
+            type="text"
+            class="form-control mb-3"
+            name="NamaAlatTulis"
+            id="NamaAlatTulis"
+            required
+            />
+            <label for="name" class="d-flex text-start">Unit:</label>
+            <input
+            type="text"
+            class="form-control mb-3"
+            name="Unit"
+            placeholder="Contoh: Keping/Buah/Kotak..."
+            id="Unit"
+            required
+            />
+            <label for="name" class="d-flex text-start">Kuantiti:</label>
+            <input
+            type="number"
+            class="form-control mb-3"
+            name="kuantiti"
+            id="kuantiti"
+            required
+            />
+            <div class="pt-3 d-flex">
+              <div class="ms-auto">
+                <button type="button" class="btn btn-primary">Kemas Kini</button>
+                <button type="button" class="btn btn-danger">Membuang</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div>
+        <!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="container footer-bottom clearfix">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Sistem Inovasi JPA</span></strong
+                    >. All Rights Reserved
+                </div>
+            </div>
+        </footer>
+        </div>
+        <!-- End Footer -->
+
+        <div class="" id="preloader"></div>
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </body>
+</html>

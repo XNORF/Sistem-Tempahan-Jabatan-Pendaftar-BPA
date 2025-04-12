@@ -17,35 +17,46 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
     </head>
 
-    <body>
-        <!-- ======= Header ======= -->
-        <header id="header" class="fixed-top">
-            <div class="container d-flex align-items-center">
-                <img class="logo me-auto" src="/src/img/Logo_BPA_Putih.png" alt="" width="20%" />
+<body>
+  <div class="wrapper">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <img class="logo me-auto" src="/src/img/Logo_BPA_Putih.png" alt="" width="20%" />
 
-                <nav id="navbar" class="navbar">
-                    <ul>
-                        <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto" href="request-history.html">Rekod Permohonan</a></li>
-                        <li class="dropdown">
-                            <a class="nav-link scrollto" href="stationaries.html">Alat Tulis</a>
-                        </li>
-                        <li>
-                            <a class="nav-link scrollto active" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
-                        </li>
-                        <li>
-                            <a class="nav-link scrollto" href="vehicle.html">Kenderaan</a>
-                        </li>
-                        <li class="dropdown">
-                            <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
-                            <ul>
-                                <li><a href="index.html">Log Keluar</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                </nav>
-                <!-- .navbar -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
+                    <li><a class="nav-link scrollto" href="stationaries-history.html">Rekod Permohonan</a></li>
+                    <li class="dropdown">
+                        <a class="nav-link scrollto" href="stationaries.html">Alat Tulis</a>
+                    </li>
+                    <li>
+                        <a class="nav-link scrollto active" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
+                    </li>
+                    <li>
+                        <a class="nav-link scrollto" href="vehicle.html">Kenderaan</a>
+                    </li>
+                    <li class="dropdown">
+                        <a style="font-weight: 1000" class="getstarted scrollto" href="#"><span>Zubaidah</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="index.html">Log Keluar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+    <!-- End Header -->
+    <div class="content">
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="contact section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title pt-4">
+                <h2>Bilik Mesyuarat SRAdS</h2>
+                <p>Terletak di Aras 2, Bangunan F54</p>
             </div>
         </header>
         <!-- End Header -->
@@ -106,6 +117,36 @@
                                 </select>
                             </div>
                         </div>
+                      </div>
+                    </div>
+                    
+                  <div class="form-group">
+                    <label for="name">Keperluan lain-lain</label>
+                    <span class="info-icon align-self-center">
+                      <i class="bi bi-info-circle-fill"></i>
+                      <div class="d-flex">
+                      <div class="tooltip-custom-2 ms-5">Contoh: Menggunakan untuk mesyuarat persidangan, <br> perlukan extension (nyatakan bilangannya sekali)</div></div>
+                    </span>
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      rows="10"
+                    ></textarea>
+                  </div>
+                  <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">
+                      Your message has been sent. Thank you!
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit">Mohon</button>
+                  </div>
+                </form>
+              </div>
+        </div>
+    </section>
 
                         <div class="row"></div>
 
@@ -137,7 +178,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-md-6">
                                         <label for="name">Katerer Pilihan</label>
                                         <select class="form-select" aria-label="Default select example" id="caterer" required>
                                             <option selected disabled value="" style="display: none"></option>
@@ -199,6 +239,10 @@
             </div>
         </section>
         <!-- End Team Section -->
+        </div>
+    </footer>
+    </div>
+    <!-- End Footer -->
 
         <!-- ======= Footer ======= -->
         <footer id="footer">
