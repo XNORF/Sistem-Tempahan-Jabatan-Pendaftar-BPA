@@ -1,6 +1,7 @@
 ////////////////////////////MUST HAVE////////////////////////////
 import $ from "jquery";
 const main = require("./main.js");
+
 var currentUser;
 await main.onAuthStateChanged(main.auth, (user) => {
     if (user) {

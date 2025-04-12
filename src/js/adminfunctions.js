@@ -4,10 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 
 const main = require("./main.js");
 var currentUser;
+var userData;
 main.onAuthStateChanged(main.auth, (user) => {
     if (user) {
         currentUser = user;
-        console.log(user);
+        main.getDoc(main.doc(main.db, "users", user.uid)).then((doc) => {
+            userData = doc.data();
+        });
     }
 });
 /////////////////////////////////////////////////////////////////
@@ -183,7 +186,9 @@ main.onSnapshot(main.query(main.requestDB, main.orderBy("status", "desc")), (sna
                 <td>` +
                 status +
                 `</td>
-                <td><a href="" class="btn btn-primary">Lebih lanjut</a></td>
+                <td><a href="admin-request-detail.html?id=` +
+                doc.id +
+                `" class="btn btn-primary">Lebih lanjut</a></td>
             </tr>
         `
         );
@@ -193,8 +198,8 @@ main.onSnapshot(main.query(main.requestDB, main.orderBy("status", "desc")), (sna
 
 ////////////////////////////STATIONARY////////////////////////////
 //UNCOMMENT WHEN DEPLOYING
-/* //GET
-main.onSnapshot(main.query(main.stationaryDB, main.orderBy("quantity", "desc")), (snapshot) => {
+//GET
+/* main.onSnapshot(main.query(main.stationaryDB, main.orderBy("quantity", "desc")), (snapshot) => {
     $("#stationaryList").empty();
 
     snapshot.docs.forEach((doc, index) => {
@@ -238,7 +243,7 @@ stationaryForm.addEventListener("submit", (e) => {
     $("#addStationaryBtn").prop("disabled", true);
 
     const name = stationaryForm.name.value;
-    const quantity = stationaryForm.quantity.value;
+    const quantity = parseInt(stationaryForm.quantity.value);
     const unit = stationaryForm.unit.value;
     const id = pad(lastID + 1, 3);
     const data = { id, name, quantity, unit };
@@ -318,7 +323,7 @@ updateStationaryForm.addEventListener("submit", (e) => {
     const id = updateStationaryForm.id.value;
     const name = updateStationaryForm.name.value;
     const unit = updateStationaryForm.unit.value;
-    const quantity = updateStationaryForm.quantity.value;
+    const quantity = parseInt(updateStationaryForm.quantity.value);
     const data = { id, name, quantity, unit };
 
     data.tags = getTags(data);
@@ -384,7 +389,7 @@ addVehicleForm.addEventListener("submit", (e) => {
     $("#addVehicleBtn").prop("disabled", true);
 
     const name = addVehicleForm.name.value;
-    const capacity = addVehicleForm.capacity.value;
+    const capacity = parseInt(addVehicleForm.capacity.value);
     const status = document.querySelector("#vehicleStatus").value;
     const image = addVehicleForm.img.files[0];
     const imgID = uuidv4();
@@ -432,7 +437,7 @@ updateVehicleForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const id = updateVehicleForm.id.value;
     const name = updateVehicleForm.name.value;
-    const capacity = updateVehicleForm.capacity.value;
+    const capacity = parseInt(updateVehicleForm.capacity.value);
     const status = document.querySelector("#vehicleUpdateStatus").value;
     const image = updateVehicleForm.img.files[0];
     const imgID = updateVehicleForm.imgID.value;
@@ -534,7 +539,7 @@ addRoomForm.addEventListener("submit", (e) => {
 
     const name = addRoomForm.name.value;
     const location = addRoomForm.location.value;
-    const capacity = addRoomForm.capacity.value;
+    const capacity = parseInt(addRoomForm.capacity.value);
     const status = document.querySelector("#roomStatus").value;
     const image = addRoomForm.img.files[0];
     const imgID = uuidv4();
@@ -584,7 +589,7 @@ updateRoomForm.addEventListener("submit", (e) => {
     const id = updateRoomForm.id.value;
     const name = updateRoomForm.name.value;
     const location = updateRoomForm.location.value;
-    const capacity = updateRoomForm.capacity.value;
+    const capacity = parseInt(updateRoomForm.capacity.value);
 
     const status = document.querySelector("#roomUpdateStatus").value;
     const image = updateRoomForm.img.files[0];

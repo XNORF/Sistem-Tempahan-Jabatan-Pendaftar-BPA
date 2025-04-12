@@ -1,9 +1,19 @@
 ////////////////////////////MUST HAVE////////////////////////////
 import $ from "jquery";
 const main = require("./main.js");
+var currentUser;
+var userData;
+main.onAuthStateChanged(main.auth, (user) => {
+    if (user) {
+        currentUser = user;
+        main.getDoc(main.doc(main.db, "users", user.uid)).then((doc) => {
+            userData = doc.data();
+        });
+    }
+});
 /////////////////////////////////////////////////////////////////
 
-main.onSnapshot(main.query(main.roomDB), (snapshot) => {
+main.onSnapshot(main.query(main.roomDB, main.orderBy("capacity", "asc")), (snapshot) => {
     $("#roomList").empty();
 
     const docsLength = snapshot.docs.length;

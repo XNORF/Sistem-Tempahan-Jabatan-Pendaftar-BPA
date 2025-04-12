@@ -31,15 +31,15 @@
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto" href="stationaries-history.html">Rekod Permohonan</a></li>
+                        <li><a class="nav-link scrollto" href="request-history.html">Rekod Permohonan</a></li>
                         <li class="dropdown">
                             <a class="nav-link scrollto" href="stationaries.html">Alat Tulis</a>
                             <!-- <ul>
-                                <li><a href="stationaries-history.html">Request History</a></li>
+                                <li><a href="request-history.html">Request History</a></li>
                             </ul> -->
                         </li>
                         <li>
-                            <a class="nav-link scrollto " href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
+                            <a class="nav-link scrollto" href="bilik-mesyuarat.html">Bilik Mesyuarat</a>
                         </li>
                         <li>
                             <a class="nav-link scrollto active" href="vehicle.html">Kenderaan</a>
@@ -73,95 +73,24 @@
                     <p>Sila pilih kenderaan yang diperlukan dan tekan butang mohon di kenderaan yang anda perlukan.</p>
                 </div>
 
-                <div class="row py-3">
-                  <div class="col-lg-4 d-flex jarak-pb-3">
-                    <div class="info php-email-form">
-                      <div class="vehiclepic">
-                        <img src="../img/waja.jpg" alt="">
-                      </div>
-
-                      <div class="address p-2">
-                        <h4>Proton Waja</h4>
-                        <p class="mb-0 pb-0">Kapasiti: 4 orang</p>
-                      </div>
-
-                      <div class="text-center pt-3">
-                        <button type="submit" onclick="goToVehicleForm()">Mohon</button>
-                      </div>
+                <div id="vehicleList">
+                    <div class="row py-3">
+                        <div class="col-lg-4 d-flex">
+                            <div class="info php-email-form">
+                                <div class="vehiclepic">
+                                    <img />
+                                </div>
+                                <div class="address">
+                                    <h4>-</h4>
+                                    <p class="mb-0 pb-0">Kapasiti: - orang</p>
+                                </div>
+                                <div class="text-center pt-3">
+                                    <a href=""><button type="submit">Mohon</button></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-
-                  <div class="col-lg-4 d-flex jarak-pt-3 jarak-pb-3">
-                    <div class="info php-email-form">
-                      <div class="vehiclepic">
-                        <img src="../img/innova.jpg" alt="">
-                      </div>
-
-                      <div class="address p-2">
-                        <h4>Toyota Innova </h4>
-                        <p class="mb-0 pb-0">Kapasiti: 6 orang</p>
-                      </div>
-
-                      <div class="text-center pt-3">
-                        <button type="submit" onclick="goToVehicleForm()">Mohon</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 d-flex jarak-pt-3">
-                    <div class="info php-email-form">
-                      <div class="vehiclepic">
-                        <img src="../img/serena.jpg" alt="">
-                      </div>
-
-                      <div class="address p-2">
-                        <h4>Nissan Serena</h4>
-                        <p class="mb-0 pb-0">Kapasiti: 6 orang</p>
-                      </div>
-
-                      <div class="text-center pt-3">
-                        <button type="submit" onclick="goToVehicleForm()">Mohon</button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-
-                <div class="row py-3 d-flex justify-content-center">
-                  <div class="col-lg-4 jarak-pb-3">
-                    <div class="info php-email-form">
-                      <div class="vehiclepic">
-                        <img src="../img/outlander.jpg" alt="">
-                      </div>
-
-                      <div class="address p-2">
-                        <h4>Mitsubishi Outlander</h4>
-                        <p class="mb-0 pb-0">Kapasiti: 4 orang</p>
-                      </div>
-
-                      <div class="text-center pt-3">
-                          <button type="submit" onclick="goToVehicleForm()">Mohon</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-5 d-flex jarak-pt-3">
-                    <div class="info php-email-form">
-                      <div class="vehiclepic">
-                        <img src="../img/utmfleet.jpg" alt="">
-                      </div>
-
-                      <div class="address p-2">
-                        <h4>Kenderaan UTMFLEET (Van/Bas)</h4>
-                        <p class="mb-0 pb-0">Kapasiti: 40 orang</p>
-                      </div>
-
-                      <div class="text-center pt-3">
-                        <button type="submit" onclick="goToVehicleForm()">Mohon</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                
             </div>
         </section>
         <!-- End Team Section -->
@@ -180,13 +109,7 @@
         <!-- End Footer -->
 
         <div class="" id="preloader"></div>
-        
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-        <script>
-            function goToVehicleForm() {
-                window.location.href = "mohon-kenderaan.html";
-            }
-            </script>
     </body>
 </html>

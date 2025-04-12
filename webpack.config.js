@@ -12,7 +12,7 @@ module.exports = {
         home: path.resolve(__dirname, "src/js/home.js"),
         stationaries: path.resolve(__dirname, "src/js/stationaries.js"),
         vehicle: path.resolve(__dirname, "src/js/vehicle.js"),
-        stationaries_history: path.resolve(__dirname, "src/js/stationaries-history.js"),
+        request_history: path.resolve(__dirname, "src/js/request-history.js"),
         request_detail: path.resolve(__dirname, "src/js/request-detail.js"),
         bilik_mesyuarat: path.resolve(__dirname, "src/js/bilik-mesyuarat.js"),
         mohon_bilik: path.resolve(__dirname, "src/js/mohon-bilik.js"),
@@ -21,7 +21,6 @@ module.exports = {
         adminfunctions: path.resolve(__dirname, "src/js/adminfunctions.js"),
         admin_request_detail: path.resolve(__dirname, "src/js/admin-request-detail.js"),
         admin_requests: path.resolve(__dirname, "src/js/admin-requests.js"),
-        //admindashboard: path.resolve(__dirname, "src/js/admindashboard.js"),
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -106,9 +105,9 @@ module.exports = {
             chunks: ["vehicle"],
         }),
         new HtmlWebpackPlugin({
-            filename: "stationaries-history.html",
-            template: path.resolve(__dirname, "src/html/stationaries-history.html"),
-            chunks: ["stationaries_history"],
+            filename: "request-history.html",
+            template: path.resolve(__dirname, "src/html/request-history.html"),
+            chunks: ["request_history"],
         }),
         new HtmlWebpackPlugin({
             filename: "request-detail.html",
@@ -150,10 +149,5 @@ module.exports = {
             template: path.resolve(__dirname, "src/html/admin-requests.html"),
             chunks: ["admin_requests"],
         }),
-        /*new HtmlWebpackPlugin({
-            filename: "admindashboard.html",
-            template: path.resolve(__dirname, "src/html/admindashboard.html"),
-            chunks: ["admindashboard"],
-        }),*/
     ],
 };

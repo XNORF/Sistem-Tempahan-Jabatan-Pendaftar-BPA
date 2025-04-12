@@ -31,7 +31,7 @@
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto" href="home.html">Menu Utama</a></li>
-                        <li><a class="nav-link scrollto" href="stationaries-history.html">Rekod Permohonan</a></li>
+                        <li><a class="nav-link scrollto" href="request-history.html">Rekod Permohonan</a></li>
                         <li class="dropdown">
                             <a class="nav-link scrollto active" href="stationaries.html">Alat Tulis</a>
                         </li>
@@ -69,11 +69,8 @@
                             <input type="search" id="SearchAlatTulis" class="form-control" placeholder="Search" aria-label="Search" />
                         </div>
                     </div>
-                  
-                    <div id="list">
-                        
-                    </div>
-                   
+
+                    <div id="list"></div>
                 </div>
 
                 <div class="pt-4">
@@ -99,13 +96,9 @@
         </section>
         <!-- End Team Section -->
 
-        
-
         <!-- End #main -->
-
         <!-- ======= Footer ======= -->
         <footer id="footer">
-
             <div class="container footer-bottom clearfix">
                 <div class="copyright">
                     &copy; Copyright <strong><span>Sistem Inovasi JPA</span></strong
@@ -122,32 +115,22 @@
         </div>
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-        
-        
+
         <button class="Mohonbtn" id="Mohonbtn" type="submit">Mohon</button>
         <!-- The Modal -->
         <div id="myModal" class="modal-alat-tulis">
-
             <!-- Modal content -->
-            <div class="modal-mohon ">
-            <span class="close tutup-alat-tulis" >&times;</span>
-            <h3>Sila letakkan tarikh diperlukan.</h3>
-            <label for="name">Tarikh Diperlukan</label>
-            <input
-            type="date"
-            class="form-control"
-            name="date"
-            id="date"
-            required
-            />
-            <div class="d-flex pt-3">
-                <button type="button" class="btn btn-primary ms-auto">Submit</button>
+            <div class="modal-mohon">
+                <span class="close tutup-alat-tulis">&times;</span>
+                <h3>Sila letakkan tarikh diperlukan.</h3>
+                <label for="name">Tarikh Diperlukan</label>
+                <form id="dateForm">
+                    <input type="date" class="form-control" name="date" id="neededDate" required />
+                    <div class="d-flex pt-3">
+                        <button type="submit" class="btn btn-primary ms-auto" id="submitBtn">Submit</button>
+                    </div>
+                </form>
             </div>
-            
-            </div>
-        
         </div>
-    
-    
     </body>
 </html>

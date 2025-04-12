@@ -4,14 +4,16 @@ const main = require("./main.js");
 var currentUser;
 main.onAuthStateChanged(main.auth, (user) => {
     if (user) {
-        currentUser = user;
+        main.getDoc(main.doc(main.db, "users", user.uid)).then((doc) => {
+            currentUser = doc.data();
+        });
     }
 });
 /////////////////////////////////////////////////////////////////
 
 const search = document.querySelector("#SearchAlatTulis");
 const list = document.querySelector("#list");
-const submit = document.querySelector("#Mohonbtn");
+const submit = document.querySelector("#dateForm");
 const limit = 5; //LIMIT FOR EACH PAGE
 var searchRunning = false;
 var value, pValue; //Previous value inputted
@@ -72,44 +74,52 @@ search.addEventListener("input", (e) => {
     $("#currentPage").text(currentPage);
 });
 
+//Format dates
+function formatDate(date) {
+    date = new Date(date);
+    const yyyy = date.getFullYear();
+    let mm = date.getMonth() + 1;
+    let dd = date.getDate();
+
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+
+    return dd + "/" + mm + "/" + yyyy;
+}
+
 //SUBMIT REQUEST - ADD INTO FIRESTORE & SEND EMAIL
-// submit.addEventListener("click", (e) => {
-//     e.target.disabled = true;
-//     var neededDate = prompt("Tarikh diperlukan", "31/12/2024");
+submit.addEventListener("submit", (e) => {
+    e.preventDefault();
+    $("#submitBtn").prop("disabled", true);
+    var neededDate = formatDate($("#neededDate").val());
 
-//     const today = new Date();
-//     const yyyy = today.getFullYear();
-//     let mm = today.getMonth() + 1;
-//     let dd = today.getDate();
+    const today = new Date();
+    const requestDate = formatDate(today);
 
-//     if (dd < 10) dd = "0" + dd;
-//     if (mm < 10) mm = "0" + mm;
-
-//     const requestDate = dd + "/" + mm + "/" + yyyy;
-
-//     //CHECK IF EMPTY, EMPTY JSON IS 2
-//     if (JSON.stringify(cart).length === 2) {
-//         console.log("empty");
-//     } else {
-//         main.addDoc(main.requestDB, {
-//             type: "stationary",
-//             status: "pending",
-//             request: { cart, neededDate, requestDate, approvedDate: "-" },
-//             userID: currentUser.uid,
-//         })
-//             .then((success) => {
-//                 console.log("success");
-//                 const subject = "Permohonan Alat Tulis [" + success.id + "]";
-//                 const body = ``;
-//                 //main.sendEmail(currentUser.email, subject, body);
-//                 window.location.href = "request-detail.html?id=" + success.id;
-//             })
-//             .catch((error) => {
-//                 console.log(error);
-//             });
-//     }
-//     e.target.disabled = false;
-// });
+    //CHECK IF EMPTY, EMPTY JSON IS 2
+    if (JSON.stringify(cart).length === 2) {
+        console.log("empty");
+    } else {
+        main.addDoc(main.requestDB, {
+            type: "stationary",
+            status: "pending",
+            request: { cart, neededDate, requestDate, approvedDate: "-" },
+            userID: currentUser.id,
+            name: currentUser.name,
+        })
+            .then((success) => {
+                console.log("success");
+                const subject = "Permohonan Alat Tulis [" + success.id + "]";
+                const body = ``;
+                //main.sendEmail(currentUser.email, subject, body);
+                window.location.href = "request-detail.html?id=" + success.id;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+    $("#submitBtn").prop("disabled", false);
+});
 
 //LIST STATIONARY BASED ON QUERY INTO HTML
 function getStationary(q) {
@@ -167,6 +177,9 @@ function getStationary(q) {
                             </div>
 
                             <div class="col-2">
+                                <input type="hidden" id="itemStock" value=` +
+                    doc.data().quantity +
+                    `>
                                 <p class="mt-0">` +
                     doc.data().quantity +
                     " " +
@@ -185,17 +198,17 @@ function getStationary(q) {
 //RETURN QUERY FOR FIREBASE
 function getQuery(page, isSearching, value) {
     if (isSearching) {
-        return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.where("tags", "array-contains-any", [value]));
+        return main.query(main.stationaryDB, main.orderBy("quantity", "desc"), main.limit(limit), main.where("tags", "array-contains-any", [value]));
     } else {
         switch (page) {
             case "default":
-                return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit));
+                return main.query(main.stationaryDB, main.orderBy("quantity", "desc"), main.limit(limit));
                 break;
             case "next":
-                return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.startAfter(lastVisible));
+                return main.query(main.stationaryDB, main.orderBy("quantity", "desc"), main.limit(limit), main.startAfter(lastVisible));
                 break;
             case "previous":
-                return main.query(main.stationaryDB, main.orderBy("name"), main.limit(limit), main.startAt(previousFirstVisible[currentPage - 2]));
+                return main.query(main.stationaryDB, main.orderBy("quantity", "desc"), main.limit(limit), main.startAt(previousFirstVisible[currentPage - 2]));
                 break;
         }
     }
@@ -207,10 +220,11 @@ function incDec() {
     const count = this.closest(".member").querySelector("#item-count");
     const itemID = this.closest(".member").querySelector("#itemID").innerText;
     const itemName = this.closest(".member").querySelector("#itemName").innerText;
+    const itemStock = parseInt(this.closest(".member").querySelector("#itemStock").value);
     var num = parseInt(count.innerText);
-    if (this.matches("#up")) {
+    if (this.matches("#up") && num + 1 <= itemStock) {
         num++;
-    } else {
+    } else if (this.matches("#down")) {
         num--;
     }
     num = num < 0 ? 0 : num;
@@ -273,19 +287,22 @@ var btn = document.getElementById("Mohonbtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+btn.onclick = function () {
+    if (Object.keys(cart).length == 0) {
+        alert("Tiada item di dalam troli");
+    } else {
+        modal.style.display = "block";
+    }
+};
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+span.onclick = function () {
+    modal.style.display = "none";
+};
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
